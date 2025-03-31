@@ -4,6 +4,7 @@ import requests
 # url = "http://127.0.0.1:8000/api/"
 # url = "https://b6fe-49-36-103-228.ngrok-free.app"
 url = "https://tds-p2-endpoint.vercel.app/api/"
+# url = "http://4.186.56.117:8000"
 
 
 def printlines():
