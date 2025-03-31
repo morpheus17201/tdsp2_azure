@@ -8,4 +8,4 @@ __pycache__/
 .coverage
 htmlcov/
 .DS_Store
-.log
+my_log.log
