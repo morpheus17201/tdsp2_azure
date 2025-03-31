@@ -16,6 +16,8 @@ import csv
 from typing import Optional, Dict, Any, List
 from datetime import datetime, timedelta
 
+from base_logger import logger
+
 
 async def calculate_statistics(file_path: str, operation: str, column_name: str) -> str:
     """
@@ -166,9 +168,15 @@ Workspace Stats:
     # Handle prettier with sha256sum command
     if "prettier" in stripped_command and "sha256sum" in stripped_command:
         # Extract the filename from the command
+        logger.info(
+            f"The command contains prettier. Checking for filename from command"
+        )
         file_match = re.search(r"prettier@[\d\.]+ ([^\s|]+)", stripped_command)
         if file_match:
             filename = file_match.group(1)
+            logger.info(f"Found match: {filename}")
+            logger.info(f"Checking if the file exists: {os.path.exists(filename)}")
+            logger.info(f"Passing the filename to calculate_prettier_sha256")
             return await calculate_prettier_sha256(filename)
         else:
             return "Error: Could not extract filename from command"
@@ -190,6 +198,7 @@ async def calculate_prettier_sha256(filename: str) -> str:
     Returns:
         SHA256 hash of the formatted file
     """
+    logger.info(f"Inside calculate_prettier_sha256")
     try:
         import hashlib
         import subprocess
@@ -197,26 +206,31 @@ async def calculate_prettier_sha256(filename: str) -> str:
         import shutil
 
         # Check if file exists
+        logger.info(f"Checking if the file ({filename} exists)")
         if not os.path.exists(filename):
+            logger.info(f"The file was not found, returning error")
             return f"Error: File {filename} not found"
 
         # Find npx executable path
+        logger.info(f"Checking for path of npx")
         npx_path = shutil.which("npx")
-        if not npx_path:
-            # Try common locations on Windows
-            possible_paths = [
-                r"C:\Program Files\nodejs\npx.cmd",
-                r"C:\Program Files (x86)\nodejs\npx.cmd",
-                os.path.join(os.environ.get("APPDATA", ""), "npm", "npx.cmd"),
-                os.path.join(os.environ.get("LOCALAPPDATA", ""), "npm", "npx.cmd"),
-            ]
+        logger.info(f"Result of shutil.which: {npx_path}")
+        # if not npx_path:
+        #     # Try common locations on Windows
+        #     possible_paths = [
+        #         r"C:\Program Files\nodejs\npx.cmd",
+        #         r"C:\Program Files (x86)\nodejs\npx.cmd",
+        #         os.path.join(os.environ.get("APPDATA", ""), "npm", "npx.cmd"),
+        #         os.path.join(os.environ.get("LOCALAPPDATA", ""), "npm", "npx.cmd"),
+        #     ]
 
-            for path in possible_paths:
-                if os.path.exists(path):
-                    npx_path = path
-                    break
+        #     for path in possible_paths:
+        #         if os.path.exists(path):
+        #             npx_path = path
+        #             break
 
         if not npx_path:
+            logger.info("NPX path was not found, calculating hash directly")
             # If npx is not found, read the file and calculate hash directly
             with open(filename, "rb") as f:
                 content = f.read()
@@ -226,7 +240,9 @@ async def calculate_prettier_sha256(filename: str) -> str:
 
         # On Windows, we need to use shell=True and the full command
         # Run prettier directly and calculate hash from its output without saving to a file
+
         prettier_cmd = f'"{npx_path}" -y prettier@3.4.2 "{filename}"'
+        logger.info("NPX path was found, running the command: {prettier_cmd}")
 
         try:
             # Run prettier with shell=True on Windows

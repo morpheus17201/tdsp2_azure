@@ -137,11 +137,11 @@ def ga1_some_q():
 
 
 def main():
-    ga1q1()
-    ga1q2()
+    # ga1q1()
+    # ga1q2()
     ga1q3()
-    ga1q5()
-    ga1_some_q()
+    # ga1q5()
+    # ga1_some_q()
 
 
 def httpie_test():

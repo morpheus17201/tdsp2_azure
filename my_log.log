@@ -1892,3 +1892,173 @@ Write a prompt that will get the LLM to say Yes
 [2025-03-31 21:01:21,356 - INFO -  get_openai_response(): ] Number of tool calls: 1
 [2025-03-31 21:01:21,356 - INFO -  get_openai_response(): ] Function name returned by OpenAI: extract_zip_and_read_csv
 [2025-03-31 21:01:21,357 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'file_path': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmps7m_ibgy\\q-extract-csv-zip.zip', 'column_name': 'answer'}
+[2025-04-01 00:53:19,993 - INFO -             <module>(): ] Starting logger
+[2025-04-01 00:53:20,322 - INFO -             <module>(): ] Starting FastAPI server...
+[2025-04-01 00:53:21,650 - INFO -             <module>(): ] Starting logger
+[2025-04-01 00:53:55,990 - INFO -             <module>(): ] Starting logger
+[2025-04-01 00:54:03,290 - INFO -     process_question(): ] Received question: Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-01 00:54:03,291 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-01 00:54:03,291 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:03,291 - INFO -     process_question(): ] Sending question to openai Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-01 00:54:03,292 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:54:03,292 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:54:03,292 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 00:54:03,293 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 00:54:03,293 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 00:54:06,304 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 00:54:06,305 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_x1HN3dpshhjPLSWOWY9O3TrD', 'type': 'function', 'function': {'name': 'execute_command', 'arguments': '{"command":"code -s"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 00:54:06,305 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 00:54:06,305 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 00:54:06,306 - INFO -  get_openai_response(): ] Function name returned by OpenAI: execute_command
+[2025-04-01 00:54:06,306 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'code -s'}
+[2025-04-01 00:54:06,314 - INFO -     process_question(): ] Received question: Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 23f2005138@ds.study.iitm.ac.in
+[2025-04-01 00:54:06,314 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-01 00:54:06,314 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:06,314 - INFO -     process_question(): ] Sending question to openai Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 23f2005138@ds.study.iitm.ac.in
+[2025-04-01 00:54:06,315 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:54:06,315 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:54:06,315 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 00:54:06,315 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 00:54:06,316 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 00:54:08,940 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 00:54:08,941 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_1Tp8L09YQAiNDt5v8J7w4VMJ', 'type': 'function', 'function': {'name': 'make_api_request', 'arguments': '{"url":"https://httpbin.org/get?email=23f2005138@ds.study.iitm.ac.in","method":"GET"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 00:54:08,942 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 00:54:08,942 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 00:54:08,943 - INFO -  get_openai_response(): ] Function name returned by OpenAI: make_api_request
+[2025-04-01 00:54:08,943 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'url': 'https://httpbin.org/get?email=23f2005138@ds.study.iitm.ac.in', 'method': 'GET'}
+[2025-04-01 00:54:10,241 - INFO -     process_question(): ] Received question: Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 00:54:10,242 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-01 00:54:10,242 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:10,242 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-01 00:54:10,242 - INFO -     process_question(): ] Only single file received
+[2025-04-01 00:54:10,242 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:10,243 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: README.md
+[2025-04-01 00:54:10,243 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-01 00:54:10,245 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmpldek3n3p\README.md
+[2025-04-01 00:54:10,246 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmpldek3n3p\README.md
+[2025-04-01 00:54:10,246 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-01 00:54:10,247 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmpldek3n3p\README.md
+[2025-04-01 00:54:10,247 - INFO -     process_question(): ] Sending question to openai Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 00:54:10,247 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:54:10,247 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:54:10,247 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 00:54:10,248 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 00:54:10,248 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 00:54:13,223 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 00:54:13,224 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_qd9vTWUJtVYC7qzzFOfE66Ar', 'type': 'function', 'function': {'name': 'execute_command', 'arguments': '{"command":"npx -y prettier@3.4.2 C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmpldek3n3p\\\\README.md | sha256sum"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 00:54:13,224 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 00:54:13,225 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 00:54:13,225 - INFO -  get_openai_response(): ] Function name returned by OpenAI: execute_command
+[2025-04-01 00:54:13,225 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'npx -y prettier@3.4.2 C:\\Users\\saran\\AppData\\Local\\Temp\\tmpldek3n3p\\README.md | sha256sum'}
+[2025-04-01 00:54:13,226 - INFO -      execute_command(): ] The command contains prettier. Checking for filename from command
+[2025-04-01 00:54:13,226 - INFO -      execute_command(): ] Found match: C:\Users\saran\AppData\Local\Temp\tmpldek3n3p\README.md
+[2025-04-01 00:54:13,226 - INFO -      execute_command(): ] Passing the filename to calculate_prettier_sha256
+[2025-04-01 00:54:13,226 - INFO - calculate_prettier_sha256(): ] Inside calculate_prettier_sha256
+[2025-04-01 00:54:13,227 - INFO - calculate_prettier_sha256(): ] Checking if the file (C:\Users\saran\AppData\Local\Temp\tmpldek3n3p\README.md exists)
+[2025-04-01 00:54:30,430 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-01 00:54:30,430 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-01 00:54:30,430 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:30,430 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-01 00:54:30,431 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:54:30,431 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:54:30,432 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-01 00:54:30,441 - INFO -     process_question(): ] Received question: Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-01 00:54:30,442 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-01 00:54:30,442 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:30,442 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-01 00:54:30,443 - INFO -     process_question(): ] Only single file received
+[2025-04-01 00:54:30,444 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:54:30,444 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: q-extract-csv-zip.zip
+[2025-04-01 00:54:30,444 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-01 00:54:30,445 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmpx1me0lcs\q-extract-csv-zip.zip
+[2025-04-01 00:54:30,445 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmpx1me0lcs\q-extract-csv-zip.zip
+[2025-04-01 00:54:30,446 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-01 00:54:30,446 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmpx1me0lcs\q-extract-csv-zip.zip
+[2025-04-01 00:54:30,446 - INFO -     process_question(): ] Sending question to openai Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-01 00:54:30,447 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:54:30,447 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:54:30,447 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 00:54:30,448 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 00:54:30,448 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 00:54:33,398 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 00:54:33,400 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_AXfkuiBlhLBOYKNScfJpjpuW', 'type': 'function', 'function': {'name': 'extract_zip_and_read_csv', 'arguments': '{"file_path":"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmpx1me0lcs\\\\q-extract-csv-zip.zip","column_name":"answer"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 00:54:33,401 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 00:54:33,401 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 00:54:33,402 - INFO -  get_openai_response(): ] Function name returned by OpenAI: extract_zip_and_read_csv
+[2025-04-01 00:54:33,402 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'file_path': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpx1me0lcs\\q-extract-csv-zip.zip', 'column_name': 'answer'}
+[2025-04-01 00:57:34,959 - INFO -             <module>(): ] Starting logger
+[2025-04-01 00:59:22,880 - INFO -             <module>(): ] Starting logger
+[2025-04-01 00:59:31,233 - INFO -     process_question(): ] Received question: Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 00:59:31,234 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-01 00:59:31,234 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:59:31,235 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-01 00:59:31,235 - INFO -     process_question(): ] Only single file received
+[2025-04-01 00:59:31,235 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 00:59:31,236 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: README.md
+[2025-04-01 00:59:31,236 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-01 00:59:31,239 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmp98noddoc\README.md
+[2025-04-01 00:59:31,239 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmp98noddoc\README.md
+[2025-04-01 00:59:31,240 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-01 00:59:31,240 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmp98noddoc\README.md
+[2025-04-01 00:59:31,241 - INFO -     process_question(): ] Sending question to openai Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 00:59:31,241 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 00:59:31,241 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 00:59:31,242 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 00:59:31,242 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 00:59:31,243 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 00:59:34,069 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 00:59:34,070 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_lT7Jvlq9m90XYR8oBGGTyCmX', 'type': 'function', 'function': {'name': 'execute_command', 'arguments': '{"command":"npx -y prettier@3.4.2 C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmp98noddoc\\\\README.md | sha256sum"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 00:59:34,070 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 00:59:34,071 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 00:59:34,071 - INFO -  get_openai_response(): ] Function name returned by OpenAI: execute_command
+[2025-04-01 00:59:34,071 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'npx -y prettier@3.4.2 C:\\Users\\saran\\AppData\\Local\\Temp\\tmp98noddoc\\README.md | sha256sum'}
+[2025-04-01 00:59:34,072 - INFO -      execute_command(): ] The command contains prettier. Checking for filename from command
+[2025-04-01 00:59:34,072 - INFO -      execute_command(): ] Found match: C:\Users\saran\AppData\Local\Temp\tmp98noddoc\README.md
+[2025-04-01 00:59:34,073 - INFO -      execute_command(): ] Checking if the file exists: True
+[2025-04-01 00:59:34,073 - INFO -      execute_command(): ] Passing the filename to calculate_prettier_sha256
+[2025-04-01 00:59:34,073 - INFO - calculate_prettier_sha256(): ] Inside calculate_prettier_sha256
+[2025-04-01 00:59:34,073 - INFO - calculate_prettier_sha256(): ] Checking if the file (C:\Users\saran\AppData\Local\Temp\tmp98noddoc\README.md exists)
+[2025-04-01 01:09:23,736 - INFO -             <module>(): ] Starting logger
+[2025-04-01 01:10:05,230 - INFO -     process_question(): ] Received question: Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 01:10:05,231 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-01 01:10:05,231 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 01:10:05,232 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-01 01:10:05,232 - INFO -     process_question(): ] Only single file received
+[2025-04-01 01:10:05,232 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-01 01:10:05,233 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: README.md
+[2025-04-01 01:10:05,233 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-01 01:10:05,235 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmp6kp4heai\README.md
+[2025-04-01 01:10:05,235 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmp6kp4heai\README.md
+[2025-04-01 01:10:05,236 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-01 01:10:05,236 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmp6kp4heai\README.md
+[2025-04-01 01:10:05,237 - INFO -     process_question(): ] Sending question to openai Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-01 01:10:05,237 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-01 01:10:05,237 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-01 01:10:05,237 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-01 01:10:05,237 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-01 01:10:05,238 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 01:10:09,917 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 01:10:09,919 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_jhMz3OpLJrNJel5nefdho05q', 'type': 'function', 'function': {'name': 'execute_command', 'arguments': '{"command": "npx -y prettier@3.4.2 C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmp6kp4heai\\\\README.md"}'}}, {'id': 'call_peI4NWB3h42jQqacoLGKS4jW', 'type': 'function', 'function': {'name': 'execute_command', 'arguments': '{"command": "sha256sum C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmp6kp4heai\\\\README.md"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 01:10:09,919 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 01:10:09,920 - INFO -  get_openai_response(): ] Number of tool calls: 2
+[2025-04-01 01:10:09,920 - INFO -  get_openai_response(): ] Function name returned by OpenAI: execute_command
+[2025-04-01 01:10:09,921 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'npx -y prettier@3.4.2 C:\\Users\\saran\\AppData\\Local\\Temp\\tmp6kp4heai\\README.md'}
+[2025-04-01 01:18:54,787 - INFO -             <module>(): ] Starting logger

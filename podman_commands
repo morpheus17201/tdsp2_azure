@@ -1,0 +1,6 @@
+
+# To build image
+podman build . -t tds-p2-v1 
+
+# To run the container 
+podman run -d -p 8000:8000 --env-file=.env tds-p2-v1
