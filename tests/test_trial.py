@@ -1,10 +1,10 @@
 import requests
 
 # Define the API endpoint and the file path
-url = "http://127.0.0.1:8000/api/"
+# url = "http://127.0.0.1:8000/api/"
 # url = "https://b6fe-49-36-103-228.ngrok-free.app"
 # url = "http://4.186.56.117:8000"
-# url = "https://tds-p2-endpoint.vercel.app/api/"
+url = "https://tds-p2-endpoint.vercel.app/api/"
 
 
 def printlines():
