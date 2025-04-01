@@ -2297,3 +2297,18 @@ Write a prompt that will get the LLM to say Yes
 [2025-04-01 09:39:59,041 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
 [2025-04-01 09:39:59,042 - INFO -  get_openai_response(): ] Making request to openai
 [2025-04-01 09:39:59,042 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-01 09:40:01,089 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-01 09:40:01,089 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_NPmoMGrzUHMyvFRJoO1uQiN1', 'type': 'function', 'function': {'name': 'format_with_prettier', 'arguments': '{"prettier_version":"3.4.2","path_to_file":"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmpb_mk83rn\\\\README.md"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-01 09:40:01,089 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-01 09:40:01,090 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-01 09:40:01,090 - INFO -  get_openai_response(): ] Function name returned by OpenAI: format_with_prettier
+[2025-04-01 09:40:01,090 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'prettier_version': '3.4.2', 'path_to_file': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpb_mk83rn\\README.md'}
+[2025-04-01 09:40:01,091 - INFO -  get_openai_response(): ] Detected function call for format_with_prettier
+[2025-04-01 09:40:01,091 - INFO - format_with_prettier(): ] Inside format_with_prettier function
+[2025-04-01 09:40:01,092 - INFO - format_with_prettier(): ] Arguments received: prettier_version='3.4.2'
+[2025-04-01 09:40:01,092 - INFO - format_with_prettier(): ] Arguments received: path_to_file='C:\\Users\\saran\\AppData\\Local\\Temp\\tmpb_mk83rn\\README.md'
+[2025-04-01 09:40:01,092 - INFO - format_with_prettier(): ] Checking if the file (C:\Users\saran\AppData\Local\Temp\tmpb_mk83rn\README.md exists)
+[2025-04-01 09:40:01,092 - INFO - format_with_prettier(): ] Checking for path of npx
+[2025-04-01 09:40:01,095 - INFO - format_with_prettier(): ] Result of shutil.which: C:\Program Files (x86)\Nodist\bin\npx.EXE
+[2025-04-01 09:40:01,095 - INFO - format_with_prettier(): ] NPX path was found, running the command: "C:\Program Files (x86)\Nodist\bin\npx.EXE" -y prettier@3.4.2 "C:\Users\saran\AppData\Local\Temp\tmpb_mk83rn\README.md"
+[2025-04-01 09:40:02,505 - INFO -  get_openai_response(): ] Executed format_with_prettier with answer='df7135cf3335f22a257770bdb05a825c9ab036239cc9507a951fefa3d3f57ed2 *-'
