@@ -68,6 +68,21 @@ async def process_question(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+from fastapi.responses import PlainTextResponse
+from fastapi import Query
+
+
+@app.get("/wiki")
+async def wiki_entrypoint(
+    country: str = Query(..., title="Country"), response_class=PlainTextResponse
+):
+    print("Inside wiki_entrypoint")
+    from functions import generate_markdown_outline
+
+    outline = await generate_markdown_outline(country)
+    return outline
+
+
 if __name__ == "__main__":
     import uvicorn
 

@@ -1814,84 +1814,148 @@ Retrieved {len(movies)} movies with ratings between {min_rating} and {max_rating
         return f"Error retrieving IMDb movies: {str(e)}"
 
 
-async def generate_country_outline(country: str) -> str:
-    """
-    Generate a Markdown outline from Wikipedia headings for a country
+async def return_wiki_entrypoint():
+    return r"https://tds-p2-country-outline.vercel.app/api"
 
-    Args:
-        country: Name of the country
 
-    Returns:
-        Markdown outline of the country's Wikipedia page
-    """
+async def generate_markdown_outline(country):
+    # Fetch Wikipedia page for the country
+    print(f"Request received for: {country}")
+    wikipedia_url = f"https://en.wikipedia.org/wiki/{country.replace(' ', '_')}"
+
+    import requests
+    from fastapi.responses import JSONResponse
+
     try:
-        import httpx
-        from bs4 import BeautifulSoup
-        import urllib.parse
+        response = requests.get(wikipedia_url)
+        response.raise_for_status()  # Will raise an exception for bad responses
+    except requests.exceptions.RequestException as e:
+        return JSONResponse(
+            status_code=400,
+            content={"message": f"Error fetching Wikipedia page: {str(e)}"},
+        )
 
-        # Format the country name for the URL
-        formatted_country = urllib.parse.quote(country.replace(" ", "_"))
-        url = f"https://en.wikipedia.org/wiki/{formatted_country}"
+    # Parse the HTML content using BeautifulSoup
+    from bs4 import BeautifulSoup
 
-        # Fetch the Wikipedia page
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url)
-            response.raise_for_status()
-            html_content = response.text
+    soup = BeautifulSoup(response.content, "html.parser")
 
-        # Parse the HTML
-        soup = BeautifulSoup(html_content, "html.parser")
+    # Extract headings (H1 to H6)
+    headings = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
 
-        # Get the page title (country name)
-        title = soup.find("h1", id="firstHeading").get_text(strip=True)
+    # Create the Markdown outline
+    # markdown_outline = "## Contents\n\n"
+    markdown_outline = ""
 
-        # Find all headings (h1 to h6)
-        headings = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
+    print(headings)
 
-        # Generate the Markdown outline
-        outline = [f"# {title}"]
-        outline.append("\n## Contents\n")
+    last_level = 1  # To keep track of heading levels (H1-H6)
+    for heading in headings:
+        level = int(heading.name[1])  # H1 -> 1, H2 -> 2, ..., H6 -> 6
+        text = heading.get_text(strip=True)
 
-        for heading in headings:
-            if heading.get("id") != "firstHeading":  # Skip the page title
-                # Determine the heading level
-                level = int(heading.name[1])
+        # Ensure markdown format by adding appropriate number of '#'
+        # markdown_heading = f"{'#' * level} {text}"
 
-                # Get the heading text
-                text = heading.get_text(strip=True)
+        # Adjust heading levels based on the last heading level
+        if level == 1:
+            markdown_outline += f"\n# {text}\n"
+        elif level == 2:
+            markdown_outline += f"\n## {text}\n"
+        elif level == 3:
+            markdown_outline += f"\n### {text}\n"
+        elif level == 4:
+            markdown_outline += f"\n#### {text}\n"
+        elif level == 5:
+            markdown_outline += f"\n##### {text}\n"
+        elif level == 6:
+            markdown_outline += f"\n###### {text}\n"
 
-                # Skip certain headings like "References", "External links", etc.
-                skip_headings = [
-                    "References",
-                    "External links",
-                    "See also",
-                    "Notes",
-                    "Citations",
-                    "Bibliography",
-                ]
-                if any(skip in text for skip in skip_headings):
-                    continue
+    # return JSONResponse(content={"markdown_outline": markdown_outline})
+    return markdown_outline
 
-                # Add the heading to the outline with appropriate indentation
-                outline.append(f"{'#' * level} {text}")
 
-        # Join the outline into a single string
-        markdown_outline = "\n\n".join(outline)
+async def generate_country_outline(country: str) -> str:
+    pass
+    # """
+    # Generate a Markdown outline from Wikipedia headings for a country
 
-        return f"""
-# Wikipedia Outline Generator
+    # Args:
+    #     country: Name of the country
 
-## Country
-{country}
+    # Returns:
+    #     Markdown outline of the country's Wikipedia page
+    # """
+    # try:
+    #     import httpx
+    #     from bs4 import BeautifulSoup
+    #     import urllib.parse
 
-## Markdown Outline
-{markdown_outline}
+    #     # Format the country name for the URL
+    #     formatted_country = urllib.parse.quote(country.replace(" ", "_"))
+    #     url = f"https://en.wikipedia.org/wiki/{formatted_country}"
 
-## API Endpoint Example
-/api/outline?country={urllib.parse.quote(country)}
-"""
-    except Exception as e:
-        return f"Error generating country outline: {str(e)}"
+    #     # Fetch the Wikipedia page
+    #     async with httpx.AsyncClient() as client:
+    #         response = await client.get(url)
+    #         response.raise_for_status()
+    #         html_content = response.text
+
+    #     # Parse the HTML
+    #     soup = BeautifulSoup(html_content, "html.parser")
+
+    #     # Get the page title (country name)
+    #     title = soup.find("h1", id="firstHeading").get_text(strip=True)
+
+    #     # Find all headings (h1 to h6)
+    #     headings = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
+
+    #     # Generate the Markdown outline
+    #     outline = [f"# {title}"]
+    #     outline.append("\n## Contents\n")
+
+    #     for heading in headings:
+    #         if heading.get("id") != "firstHeading":  # Skip the page title
+    #             # Determine the heading level
+    #             level = int(heading.name[1])
+
+    #             # Get the heading text
+    #             text = heading.get_text(strip=True)
+
+    #             # Skip certain headings like "References", "External links", etc.
+    #             skip_headings = [
+    #                 "References",
+    #                 "External links",
+    #                 "See also",
+    #                 "Notes",
+    #                 "Citations",
+    #                 "Bibliography",
+    #             ]
+    #             if any(skip in text for skip in skip_headings):
+    #                 continue
+
+    #             # Add the heading to the outline with appropriate indentation
+    #             outline.append(f"{'#' * level} {text}")
+
+    #     # Join the outline into a single string
+    #     markdown_outline = "\n\n".join(outline)
+
+    #     return markdown_outline
+
+    # #         return f"""
+    # # # Wikipedia Outline Generator
+
+    # # ## Country
+    # # {country}
+
+    # # ## Markdown Outline
+    # # {markdown_outline}
+
+    # # ## API Endpoint Example
+    # # /api/outline?country={urllib.parse.quote(country)}
+    # # """
+    # except Exception as e:
+    #     return f"Error generating country outline: {str(e)}"
 
 
 async def get_weather_forecast(city: str) -> str:
@@ -1904,73 +1968,116 @@ async def get_weather_forecast(city: str) -> str:
     Returns:
         JSON data of weather forecast with dates and descriptions
     """
+    logger.info(f"Inside get_weather_forecast. City received: {city}")
     try:
         import httpx
         import json
+        from urllib.parse import urlencode
+        import requests
 
         # Step 1: Get the location ID for the city
-        locator_url = "https://locator-service.api.bbci.co.uk/locations"
-        params = {
-            "api_key": "AGbFAKx58hyjQScCXIYrxuEwJh2W2cmv",  # This is a public API key used by BBC
-            "stack": "aws",
-            "locale": "en-GB",
-            "filter": "international",
-            "place-types": "settlement,airport,district",
-            "order": "importance",
-            "a": city,
-            "format": "json",
-        }
+        # locator_url = "https://locator-service.api.bbci.co.uk/locations"
+        # params = {
+        #     "api_key": os.environ[
+        #         "BBC_WEATHER_KEY"
+        #     ],  # This is a public API key used by BBC
+        #     "stack": "aws",
+        #     "locale": "en-GB",
+        #     "filter": "international",
+        #     "place-types": "settlement,airport,district",
+        #     "order": "importance",
+        #     "a": city,
+        #     "format": "json",
+        # }
 
+        # async with httpx.AsyncClient() as client:
+        #     # Get location ID
+        #     response = await client.get(locator_url, params=params)
+        #     response.raise_for_status()
+        #     location_data = response.json()
+
+        #     if (
+        #         not location_data.get("locations")
+        #         or len(location_data["locations"]) == 0
+        #     ):
+        #         return f"Could not find location ID for {city}"
+
+        location_url = "https://locator-service.api.bbci.co.uk/locations?" + urlencode(
+            {
+                "api_key": os.environ["BBC_WEATHER_KEY"],
+                "s": city,
+                "stack": "aws",
+                "locale": "en",
+                "filter": "international",
+                "place-types": "settlement,airport,district",
+                "order": "importance",
+                "a": "true",
+                "format": "json",
+            }
+        )
+
+        logger.info(f"Locator services URL constructed: {location_url}")
+        logger.info(f"Sending request to locator URL")
+
+        # response = requests.get(LOCATOR_URL, params=params)
+        response = requests.get(location_url).json()
+        logger.info(f"Response received: {response}")
+        location_id = response["response"]["results"]["results"][0]["id"]
+        logger.info(f"Location id extracted: {location_id}")
+
+        # location_id = location_data["locations"][0]["id"]
+
+        # Step 2: Get the weather forecast using the location ID
+        logger.info(f"Getting forecast for the {location_id=}")
+        weather_url = f"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{location_id}"
         async with httpx.AsyncClient() as client:
-            # Get location ID
-            response = await client.get(locator_url, params=params)
-            response.raise_for_status()
-            location_data = response.json()
-
-            if (
-                not location_data.get("locations")
-                or len(location_data["locations"]) == 0
-            ):
-                return f"Could not find location ID for {city}"
-
-            location_id = location_data["locations"][0]["id"]
-
-            # Step 2: Get the weather forecast using the location ID
-            weather_url = f"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{location_id}"
             weather_response = await client.get(weather_url)
             weather_response.raise_for_status()
             weather_data = weather_response.json()
 
-            # Step 3: Extract the forecast data
-            forecasts = weather_data.get("forecasts", [{}])[0].get("forecasts", [])
+        # Step 3: Extract the forecast data
+        # forecasts = weather_data.get("forecasts", [{}])[0].get("forecasts", [])
+        # logger.info(f"Extracted forecass: {forecasts}")
 
-            # Create a dictionary mapping dates to weather descriptions
-            weather_forecast = {}
-            for forecast in forecasts:
-                local_date = forecast.get("localDate")
-                description = forecast.get("enhancedWeatherDescription")
-                if local_date and description:
-                    weather_forecast[local_date] = description
+        # # Create a dictionary mapping dates to weather descriptions
+        # weather_forecast = {}
+        # for forecast in forecasts:
+        #     local_date = forecast.get("localDate")
+        #     description = forecast.get("enhancedWeatherDescription")
+        #     if local_date and description:
+        #         weather_forecast[local_date] = description
 
-            # Format as JSON
-            forecast_json = json.dumps(weather_forecast, indent=2)
+        # Format as JSON
 
-            return f"""
-# Weather Forecast for {city}
+        data = json.loads(weather_response.text)
+        weather_forecast = {}
+        for forecast in data["forecasts"]:
+            date = forecast["summary"]["report"]["localDate"]
+            desc = forecast["summary"]["report"]["enhancedWeatherDescription"]
+            # print(f"{date=}, {desc=}")
+            weather_forecast[date] = desc
 
-## Location Details
-- City: {city}
-- Location ID: {location_id}
-- Source: BBC Weather API
+        forecast_json = json.dumps(weather_forecast, indent=2)
+        logger.info(f"{forecast_json=}")
 
-## Forecast
-```json
-{forecast_json}
-```
+        return forecast_json
 
-## Summary
-Retrieved weather forecast for {len(weather_forecast)} days.
-"""
+    #     return f"""
+    # # Weather Forecast for {city}
+
+    # ## Location Details
+    # - City: {city}
+    # - Location ID: {location_id}
+    # - Source: BBC Weather API
+
+    # ## Forecast
+    # ```json
+    # {forecast_json}
+    # ```
+
+    # ## Summary
+    # Retrieved weather forecast for {len(weather_forecast)} days.
+    # """
     except Exception as e:
         return f"Error retrieving weather forecast: {str(e)}"
 
@@ -2497,7 +2604,7 @@ GET http://127.0.0.1:8000/execute?q={query.replace(" ", "%20")}
         return f"Error parsing function call: {str(e)}"
 
 
-async def get_delhi_bounding_box() -> str:
+async def get_delhi_bounding_box(city: str, country: str) -> str:
     """
     Get the minimum latitude of Delhi, India using the Nominatim API
 
@@ -2514,8 +2621,8 @@ async def get_delhi_bounding_box() -> str:
 
         # Parameters for the request
         params = {
-            "city": "Delhi",
-            "country": "India",
+            "city": city,
+            "country": country,
             "format": "json",
             "limit": 10,  # Get multiple results to ensure we find the right one
         }
@@ -2533,18 +2640,20 @@ async def get_delhi_bounding_box() -> str:
             results = response.json()
 
             if not results:
-                return "No results found for Delhi, India"
+                return f"No results found for {city}, {country}"
 
             # Find the correct Delhi (capital city)
             delhi = None
-            for result in results:
-                if "New Delhi" in result.get("display_name", ""):
-                    delhi = result
-                    break
+            # for result in results:
+            #     if "New Delhi" in result.get("display_name", ""):
+            #         delhi = result
+            #         break
 
-            # If we didn't find New Delhi specifically, use the first result
-            if not delhi and results:
-                delhi = results[0]
+            # # If we didn't find New Delhi specifically, use the first result
+            # if not delhi and results:
+            #     delhi = results[0]
+
+            delhi = results[0]
 
             if delhi and "boundingbox" in delhi:
                 # Extract the minimum latitude from the bounding box
@@ -2553,13 +2662,13 @@ async def get_delhi_bounding_box() -> str:
                 # Return just the minimum latitude value
                 return min_lat
             else:
-                return "Bounding box information not available for Delhi"
+                return f"Bounding box information not available for {city}"
 
     except Exception as e:
-        return f"Error retrieving Delhi bounding box: {str(e)}"
+        return f"Error retrieving {city} bounding box: {str(e)}"
 
 
-async def find_duckdb_hn_post() -> str:
+async def find_duckdb_hn_post(topic="AI", min_points=36) -> str:
     """
     Find the latest Hacker News post mentioning DuckDB with at least 71 points
 
@@ -2574,7 +2683,10 @@ async def find_duckdb_hn_post() -> str:
         url = "https://hnrss.org/newest"
 
         # Parameters for the request
-        params = {"q": "DuckDB", "points": "71"}  # Search term  # Minimum points
+        params = {
+            "q": topic,
+            "points": str(min_points),
+        }  # Search term  # Minimum points
 
         async with httpx.AsyncClient() as client:
             # Make the request
@@ -2612,34 +2724,38 @@ async def find_duckdb_hn_post() -> str:
             )
 
             # Create a detailed response
-            return f"""
-# Latest Hacker News Post About DuckDB
 
-## Post Information
-- Title: {title}
-- Publication Date: {pub_date}
-- Link: **{link}**
+            return link
+    #             return f"""
+    # # Latest Hacker News Post About DuckDB
 
-## Search Criteria
-- Keyword: DuckDB
-- Minimum Points: 71
+    # ## Post Information
+    # - Title: {title}
+    # - Publication Date: {pub_date}
+    # - Link: **{link}**
 
-## API Details
-- API: Hacker News RSS
-- Endpoint: {url}
-- Parameters: {params}
+    # ## Search Criteria
+    # - Keyword: DuckDB
+    # - Minimum Points: 71
 
-## Usage Notes
-This data can be used for:
-- Tracking industry trends
-- Monitoring technology discussions
-- Gathering competitive intelligence
-"""
+    # ## API Details
+    # - API: Hacker News RSS
+    # - Endpoint: {url}
+    # - Parameters: {params}
+
+    # ## Usage Notes
+    # This data can be used for:
+    # - Tracking industry trends
+    # - Monitoring technology discussions
+    # - Gathering competitive intelligence
+    # """
     except Exception as e:
         return f"Error finding DuckDB Hacker News post: {str(e)}"
 
 
-async def find_newest_seattle_github_user() -> str:
+async def find_newest_seattle_github_user(
+    city: str, followers: int, cutoff_time: str
+) -> str:
     """
     Find the newest GitHub user in Seattle with over 130 followers
 
@@ -2650,13 +2766,14 @@ async def find_newest_seattle_github_user() -> str:
         import httpx
         import json
         from datetime import datetime
+        from dateutil import parser
 
         # GitHub API endpoint for searching users
         url = "https://api.github.com/search/users"
 
         # Parameters for the request
         params = {
-            "q": "location:Seattle followers:>130",
+            "q": f"location:{city} followers:>{followers}",
             "sort": "joined",
             "order": "desc",
             "per_page": 10,  # Get multiple results to ensure we find valid users
@@ -2679,9 +2796,11 @@ async def find_newest_seattle_github_user() -> str:
 
             # Get the newest user
             newest_user = None
-            cutoff_date = datetime.fromisoformat(
-                "2025-03-19T13:51:09Z".replace("Z", "+00:00")
-            )
+            # cutoff_date = datetime.fromisoformat(
+            #     "2025-03-19T13:51:09Z".replace("Z", "+00:00")
+            # )
+
+            cutoff_time = parser.parse(cutoff_time)
 
             for user in search_results["items"]:
                 # Get detailed user information
@@ -2697,45 +2816,46 @@ async def find_newest_seattle_github_user() -> str:
                     )
 
                     # Ignore users who joined after the cutoff date
-                    if created_at < cutoff_date:
+                    if created_at < cutoff_time:
                         newest_user = user_details
                         break
 
             if not newest_user:
-                return "No valid GitHub users found in Seattle with over 130 followers"
+                return f"No valid GitHub users found in {city} with over {followers} followers"
 
             # Extract the created_at date
             created_at = newest_user.get("created_at")
 
             # Create a detailed response
-            return f"""
-# Newest GitHub User in Seattle with 130+ Followers
+            return created_at
+    #             return f"""
+    # # Newest GitHub User in Seattle with 130+ Followers
 
-## User Information
-- Username: {newest_user.get("login")}
-- Name: {newest_user.get("name") or "N/A"}
-- Profile URL: {newest_user.get("html_url")}
-- Followers: {newest_user.get("followers")}
-- Location: {newest_user.get("location")}
-- Created At: **{created_at}**
+    # ## User Information
+    # - Username: {newest_user.get("login")}
+    # - Name: {newest_user.get("name") or "N/A"}
+    # - Profile URL: {newest_user.get("html_url")}
+    # - Followers: {newest_user.get("followers")}
+    # - Location: {newest_user.get("location")}
+    # - Created At: **{created_at}**
 
-## Search Criteria
-- Location: Seattle
-- Minimum Followers: 130
-- Sort: Joined (descending)
+    # ## Search Criteria
+    # - Location: Seattle
+    # - Minimum Followers: 130
+    # - Sort: Joined (descending)
 
-## API Details
-- API: GitHub Search API
-- Endpoint: {url}
-- Parameters: {json.dumps(params)}
+    # ## API Details
+    # - API: GitHub Search API
+    # - Endpoint: {url}
+    # - Parameters: {json.dumps(params)}
 
-## Usage Notes
-This data can be used for:
-- Targeted recruitment
-- Competitive intelligence
-- Efficiency in talent acquisition
-- Data-driven decisions in recruitment
-"""
+    # ## Usage Notes
+    # This data can be used for:
+    # - Targeted recruitment
+    # - Competitive intelligence
+    # - Efficiency in talent acquisition
+    # - Data-driven decisions in recruitment
+    # """
     except Exception as e:
         return f"Error finding newest Seattle GitHub user: {str(e)}"
 
@@ -2751,69 +2871,53 @@ async def create_github_action_workflow(email: str, repository_url: str = None) 
     Returns:
         GitHub Action workflow YAML
     """
-    try:
-        # Generate GitHub Action workflow
-        workflow = f"""name: Daily Commit
 
-# Schedule to run once per day at 14:30 UTC
-on:
-  schedule:
-    - cron: '30 14 * * *'
-  workflow_dispatch:  # Allow manual triggering
 
-jobs:
-  daily-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        
-      - name: {email}
-        run: |
-          # Create a new file with timestamp
-          echo "Daily update on $(date)" > daily-update.txt
-          
-          # Configure Git
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          
-          # Commit and push changes
-          git add daily-update.txt
-          git commit -m "Daily automated update"
-          git push
-"""
+async def create_github_action_workflow(email="23f2005138@ds.study.iitm.ac"):
+    logger.info(f"Inside create_github_action_workflow function")
+    branch, owner, repo, workflow_name, ghp_token = (
+        "main",
+        "morpheus17201",
+        "imdb_scraper",
+        "imdb-top250.yml",
+        os.environ["GITHUB_TOKEN"],
+    )
 
-        # Instructions for setting up the workflow
-        instructions = f"""
-# GitHub Action Workflow Setup
+    import requests
 
-## Workflow File
-Save this file as `.github/workflows/daily-commit.yml` in your repository:
+    logger.info(f"Creating run_workflow function")
 
-```yaml
-{workflow}
-```
+    def run_workflow(branch, owner, repo, workflow_name, ghp_token):
+        logger.info(f"Inside run_workflow function")
+        url = f"https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_name}/dispatches"
 
-## How It Works
-1. This workflow runs automatically at 14:30 UTC every day
-2. It creates a file with the current timestamp
-3. It commits and pushes the changes to your repository
-4. The step name includes your email: {email}
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {ghp_token}",
+            "Content-Type": "application/json",
+        }
 
-## Manual Trigger
-You can also trigger this workflow manually from the Actions tab in your repository.
+        logger.info("done")
 
-## Verification Steps
-1. After setting up, go to the Actions tab in your repository
-2. You should see the "Daily Commit" workflow
-3. Check that it creates a commit during or within 5 minutes of the workflow run
+        data = '{"ref":"' + branch + '"}'
+        logger.info(f"Data to be sent to github: {data}")
 
-## Repository URL
-{repository_url or "Please provide your repository URL"}
-"""
-        return instructions
-    except Exception as e:
-        return f"Error creating GitHub Action workflow: {str(e)}"
+        logger.info(f"Sending request to github")
+
+        resp = requests.post(url, headers=headers, data=data)
+        return resp
+
+    logger.info("Triggerig workflow")
+    response = run_workflow(branch, owner, repo, workflow_name, ghp_token)
+
+    if response.status_code == 204:
+        logger.info(f"Received status code 204 => Worflow succesfully triggered")
+        print("Workflow Triggered!")
+    else:
+        logger.info("Something went wrong")
+        print("Something went wrong.")
+
+    return r"https://github.com/morpheus17201/imdb_scraper"
 
 
 async def extract_tables_from_pdf(file_path: str) -> str:

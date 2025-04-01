@@ -728,17 +728,25 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         {
             "type": "function",
             "function": {
-                "name": "generate_country_outline",
-                "description": "Generate a Markdown outline from Wikipedia headings for a country",
+                "name": "return_wiki_entrypoint",
+                "description": """
+                API Development: Choose any web framework (e.g., FastAPI) to develop the web application. Create an API endpoint (e.g., /api/outline) that accepts a country query parameter.
+                Fetching Wikipedia Content: Find out the Wikipedia URL of the country and fetch the page's HTML.
+                Extracting Headings: Use an HTML parsing library (e.g., BeautifulSoup, lxml) to parse the fetched Wikipedia page. Extract all headings (H1 to H6) from the page, maintaining order.
+                Generating Markdown Outline: Convert the extracted headings into a Markdown-formatted outline. Headings should begin with #.
+                Enabling CORS: Configure the web application to include appropriate CORS headers, allowing GET requests from any origin.
+                What is the URL of your API endpoint?
+                We'll check by sending a request to this URL with ?country=... passing different countries.
+                """,
                 "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "country": {
-                            "type": "string",
-                            "description": "Name of the country",
-                        },
-                    },
-                    "required": ["country"],
+                    # "type": "object",
+                    # "properties": {
+                    #     "query_parameter": {
+                    #         "type": "string",
+                    #         "description": "URL query parameter which will be passed, for example in '?country=', 'country' is the parameter",
+                    #     },
+                    # },
+                    # "required": ["query_parameter"],
                 },
             },
         },
@@ -858,35 +866,74 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
             "type": "function",
             "function": {
                 "name": "get_delhi_bounding_box",
-                "description": "Get the minimum latitude of Delhi, India using the Nominatim API",
+                "description": """
+        Find the minimum or maximum latitude or longitude of the given city using Nominatim API. 
+        If osm_id is given, use that to identify the matching city from the list of multiple cities
+        returned by Nominatim
+        """,
                 "parameters": {
                     "type": "object",
-                    "properties": {},
-                    "required": [],
+                    "properties": {
+                        "city": {
+                            "type": "string",
+                            "description": "The city for which details need to be fetched, preferably in the form 'City, Country', where the first parameter is city",
+                        },
+                        "country": {
+                            "type": "string",
+                            "description": "The city for which details need to be fetched, preferably in the form 'City, Country', where the second parameter is country",
+                        },
+                    },
+                    "required": ["city", "country"],
+                    "additionalProperties": False,
                 },
+                "strict": True,
             },
         },
         {
             "type": "function",
             "function": {
                 "name": "find_duckdb_hn_post",
-                "description": "Find the latest Hacker News post mentioning DuckDB with at least 71 points",
+                "description": "Find the latest Hacker News post mentioning a ginen topic with at least some minimum number of points given in the question",
                 "parameters": {
                     "type": "object",
-                    "properties": {},
-                    "required": [],
+                    "properties": {
+                        "topic": {
+                            "type": "string",
+                            "description": "Topic to search for in the Hacker News posts, for example 'AI'",
+                        },
+                        "min_points": {
+                            "type": "integer",
+                            "description": "Minimum number of points to filter the posts on, for example 36",
+                        },
+                    },
+                    "required": ["topic", "min_points"],
+                    "additionalProperties": False,
                 },
+                "strict": True,
             },
         },
         {
             "type": "function",
             "function": {
                 "name": "find_newest_seattle_github_user",
-                "description": "Find the newest GitHub user in Seattle with over 130 followers",
+                "description": "Find the newest GitHub user in given city with over followers more than given number of followers and joined before the cutoff time",
                 "parameters": {
                     "type": "object",
-                    "properties": {},
-                    "required": [],
+                    "properties": {
+                        "city": {
+                            "type": "string",
+                            "description": "City where to look for the github users",
+                        },
+                        "followers": {
+                            "type": "integer",
+                            "description": "Minimum mumber of followers",
+                        },
+                        "cutoff_time": {
+                            "type": "string",
+                            "description": "Cutoff time before which the user should have joined",
+                        },
+                    },
+                    "required": ["city", "followers", "cutoff_time"],
                 },
             },
         },
@@ -894,7 +941,8 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
             "type": "function",
             "function": {
                 "name": "create_github_action_workflow",
-                "description": "Create a GitHub Action workflow that runs daily and adds a commit",
+                "description": """
+                Create a GitHub Action workflow that runs daily and adds a commit""",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -1437,9 +1485,9 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
                         limit=function_args.get("limit", 25),
                     )
 
-                elif function_name == "generate_country_outline":
-                    answer = await generate_country_outline(
-                        country=function_args.get("country"),
+                elif function_name == "return_wiki_entrypoint":
+                    answer = await return_wiki_entrypoint(
+                        # country=function_args.get("query_parameter"),
                     )
 
                 elif function_name == "get_weather_forecast":
@@ -1471,18 +1519,26 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
                         query=function_args.get("query", ""),
                     )
                 elif function_name == "get_delhi_bounding_box":
-                    answer = await get_delhi_bounding_box()
+                    answer = await get_delhi_bounding_box(
+                        city=function_args.get("city"),
+                        country=function_args.get("country"),
+                    )
 
                 elif function_name == "find_duckdb_hn_post":
                     answer = await find_duckdb_hn_post()
 
                 elif function_name == "find_newest_seattle_github_user":
-                    answer = await find_newest_seattle_github_user()
+                    answer = await find_newest_seattle_github_user(
+                        city=function_args.get("city"),
+                        followers=function_args.get("followers"),
+                        cutoff_time=function_args.get("cutoff_time"),
+                    )
 
                 elif function_name == "create_github_action_workflow":
+                    logger.info(f"Detected function create_github_action_workflow")
                     answer = await create_github_action_workflow(
                         email=function_args.get("email"),
-                        repository_url=function_args.get("repository_url"),
+                        # repository_url=function_args.get("repository_url"),
                     )
                 elif function_name == "extract_tables_from_pdf":
                     answer = await extract_tables_from_pdf(
