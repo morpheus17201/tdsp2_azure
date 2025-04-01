@@ -2811,3 +2811,37 @@ We'll check by sending a request to this URL with ?country=... passing different
 [2025-04-02 00:45:33,438 - INFO -  get_openai_response(): ] Number of tool calls: 1
 [2025-04-02 00:45:33,438 - INFO -  get_openai_response(): ] Function name returned by OpenAI: return_wiki_entrypoint
 [2025-04-02 00:45:33,439 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {}
+[2025-04-02 00:55:19,990 - INFO -             <module>(): ] Starting logger
+[2025-04-02 00:55:39,780 - INFO -     process_question(): ] Received question: 
+API Development: Choose any web framework (e.g., FastAPI) to develop the web application. Create an API endpoint (e.g., /api/outline) that accepts a country query parameter.
+Fetching Wikipedia Content: Find out the Wikipedia URL of the country and fetch the page's HTML.
+Extracting Headings: Use an HTML parsing library (e.g., BeautifulSoup, lxml) to parse the fetched Wikipedia page. Extract all headings (H1 to H6) from the page, maintaining order.
+Generating Markdown Outline: Convert the extracted headings into a Markdown-formatted outline. Headings should begin with #.
+Enabling CORS: Configure the web application to include appropriate CORS headers, allowing GET requests from any origin.
+What is the URL of your API endpoint?
+We'll check by sending a request to this URL with ?country=... passing different countries.
+
+[2025-04-02 00:55:39,781 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-02 00:55:39,781 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-02 00:55:39,781 - INFO -     process_question(): ] Sending question to openai 
+API Development: Choose any web framework (e.g., FastAPI) to develop the web application. Create an API endpoint (e.g., /api/outline) that accepts a country query parameter.
+Fetching Wikipedia Content: Find out the Wikipedia URL of the country and fetch the page's HTML.
+Extracting Headings: Use an HTML parsing library (e.g., BeautifulSoup, lxml) to parse the fetched Wikipedia page. Extract all headings (H1 to H6) from the page, maintaining order.
+Generating Markdown Outline: Convert the extracted headings into a Markdown-formatted outline. Headings should begin with #.
+Enabling CORS: Configure the web application to include appropriate CORS headers, allowing GET requests from any origin.
+What is the URL of your API endpoint?
+We'll check by sending a request to this URL with ?country=... passing different countries.
+
+[2025-04-02 00:55:39,782 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-02 00:55:39,782 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-02 00:55:39,783 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-02 00:55:39,783 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-02 00:55:39,784 - INFO -  get_openai_response(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-02 00:55:42,408 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-02 00:55:42,408 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_com7JRdromgdOefj22hE4zYt', 'type': 'function', 'function': {'name': 'return_wiki_entrypoint', 'arguments': '{}'}}], 'refusal': None, 'annotations': []}
+[2025-04-02 00:55:42,409 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-02 00:55:42,409 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-02 00:55:42,410 - INFO -  get_openai_response(): ] Function name returned by OpenAI: return_wiki_entrypoint
+[2025-04-02 00:55:42,410 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {}
+[2025-04-02 01:00:20,328 - INFO -             <module>(): ] Starting logger
+[2025-04-02 01:05:20,715 - INFO -             <module>(): ] Starting logger

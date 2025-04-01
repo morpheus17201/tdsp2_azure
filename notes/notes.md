@@ -1,4 +1,81 @@
 
+# Some important commands
+
+## Connect to Azure vm:
+
+```bash
+ssh -i ~/.ssh/tds-project2_key.pem azureuser@4.186.56.117
+```
+
+## Steps to build container
+
+1) Sync the repo from laptop to github
+2) Login to Azure vm from laptop using the following command: ```ssh -i ~/.ssh/tds-project2_key.pem azureuser@4.186.56.117```
+3) Change to project directory
+4) Remove my_log.log (otherwise it creates problems in sync)
+5) Run ```git pull origin```
+6) Stop the container: ```podman stop --all```
+7) Build the container: ```podman build . -t tds-p2-v1```
+8) Go to tmux session: ```tmux attach```
+9) Inside tmux, run the container: ```podman run -d -p 8000:8000 --env-file=.env tds-p2-v1```
+10) **DO NOT LOGOUT from tmux**. Exit using shortcut "Ctrl+b d"
+
+## Podman commands
+
+To build image
+
+```bash
+podman build . -t tds-p2-v1 
+```
+
+To run the container 
+
+```bash
+podman run -d -p 8000:8000 --env-file=.env tds-p2-v1
+```
+
+To stop the container
+
+```bash
+podman stop --all
+```
+
+To get into running container to inspect
+
+```bash
+podman exec -it <Container ID> /bin/bash
+```
+
+To view the container logs continuously
+
+```bash
+podman logs -f <Container ID>
+```
+
+## UV commands
+
+Create new project
+
+```bash
+# Run inside the project folder
+uv init
+# This will create initial pyproject.toml
+```
+
+Install dependencies from ```requirements.txt```
+
+```bash
+uv add -r requirements.txt
+```
+
+Install packages
+
+```bash
+uv pip install fastapi
+```
+
+
+
 # Handling newline characters in markdown response
 
 Your markdown must have newline characters or spaces wherever necessary. Otherwise we will not be able to check if your answer is correct. Our parser will only work if encodings for the formatting are present in the response. If there are no encodings (invisible or visible) then we will not have the correctly formatted file.
@@ -133,7 +210,6 @@ textboxes.forEach(input => input.removeAttribute('disabled'));
 # To do
 
 * Creating mechanism to pass from vercel to local instance
-* GA4 Q6 for hacker news - bs4 is giving some error on not being able to find the parser, although original code runs fine
-* GA4 Q7 - getting Github users - getting error "HTTP error occurred: 403 Client Error: rate limit exceeded for url: <https://api.github.com/user/137277687>"
 * GA4 Q9 - Tabula installation requires Java Runtime to be installed
+
 

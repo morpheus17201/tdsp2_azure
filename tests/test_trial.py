@@ -1,10 +1,10 @@
 import requests
 
 # Define the API endpoint and the file path
-url = "http://localhost:8000/api/"
+# url = "http://localhost:8000/api/"
 # url = "https://b6fe-49-36-103-228.ngrok-free.app"
 # url = "http://4.186.56.117:8000"
-# url = "https://tds-p2-endpoint.vercel.app/api/"
+url = "https://tds-p2-endpoint.vercel.app/api/"
 #
 
 
@@ -270,18 +270,18 @@ Be located in .github/workflows/ directory"""
 
 
 def main():
-    # ga1q1()
-    # ga1q2()
-    # ga1q3()
-    # ga1q5()
-    # ga1_some_q()
+    ga1q1()
+    ga1q2()
+    ga1q3()
+    ga1q5()
+    ga1_some_q()
 
     ga4q3()
-    # ga4q4()
-    # ga4q5()
-    # ga4q6()
-    # ga4q7()
-    # ga4q8()
+    ga4q4()
+    ga4q5()
+    ga4q6()
+    ga4q7()
+    ga4q8()
 
 
 def httpie_test():
