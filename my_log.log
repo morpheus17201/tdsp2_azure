@@ -2312,3 +2312,4 @@ Write a prompt that will get the LLM to say Yes
 [2025-04-01 09:40:01,095 - INFO - format_with_prettier(): ] Result of shutil.which: C:\Program Files (x86)\Nodist\bin\npx.EXE
 [2025-04-01 09:40:01,095 - INFO - format_with_prettier(): ] NPX path was found, running the command: "C:\Program Files (x86)\Nodist\bin\npx.EXE" -y prettier@3.4.2 "C:\Users\saran\AppData\Local\Temp\tmpb_mk83rn\README.md"
 [2025-04-01 09:40:02,505 - INFO -  get_openai_response(): ] Executed format_with_prettier with answer='df7135cf3335f22a257770bdb05a825c9ab036239cc9507a951fefa3d3f57ed2 *-'
+[2025-04-01 09:45:39,802 - INFO -             <module>(): ] Starting logger
