@@ -171,7 +171,7 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         {
             "type": "function",
             "function": {
-                "name": "execute_command",
+                "name": "vscode_info",
                 "description": """
                 Install and run Visual Studio Code. In your Terminal (or Command Prompt), type code -s and press Enter. Copy and paste the entire output below.
                 What is the output of code -s?
@@ -181,10 +181,35 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
                     "properties": {
                         "command": {
                             "type": "string",
-                            "description": "The command to execute (e.g., 'code -s', 'ls', 'dir')",
+                            "description": "The command to execute i.e. 'code -s')",
                         }
                     },
                     "required": ["command"],
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "format_with_prettier",
+                "description": """
+            Let's make sure you know how to use npx and prettier.
+            Download the given file (README.md) In the directory where you downloaded it, make sure it is called README.md, and run npx -y prettier@3.4.2 README.md | sha256sum.
+            What is the output of the command?
+            """,
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "prettier_version": {
+                            "type": "string",
+                            "description": "Version of prettier command to use for example 3.4.2",
+                        },
+                        "path_to_file": {
+                            "type": "string",
+                            "description": "Path where the source file is stored",
+                        },
+                    },
+                    "required": ["prettier_version", "path_to_file"],
                 },
             },
         },
@@ -1258,8 +1283,18 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
                 logger.info(f"Function arguments returned by OpenAI: {function_args}")
 
                 # Execute the appropriate function
-                if function_name == "execute_command":
-                    answer = await execute_command(function_args.get("command"))
+
+                if function_name == "format_with_prettier":
+                    logger.info(f"Detected function call for format_with_prettier")
+                    answer = await format_with_prettier(
+                        function_args.get("prettier_version"),
+                        function_args.get("path_to_file"),
+                    )
+                    logger.info(f"Executed format_with_prettier with {answer=}")
+
+                elif function_name == "vscode_info":
+                    logger.info(f"Detected function call for vscode_info")
+                    answer = await vscode_info(function_args.get("command"))
 
                 elif function_name == "extract_zip_and_read_csv":
                     answer = await extract_zip_and_read_csv(

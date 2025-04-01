@@ -82,7 +82,7 @@ async def make_api_request(
 
 
 # GA 1 Question 1
-async def execute_command(command: str) -> str:
+async def vscode_info(command: str) -> str:
     """
     Return predefined outputs for specific commands without executing them
     """
@@ -166,28 +166,86 @@ Workspace Stats:
         return "This is a simulated response for a curl command."
 
     # Handle prettier with sha256sum command
-    if "prettier" in stripped_command and "sha256sum" in stripped_command:
-        # Extract the filename from the command
-        logger.info(
-            f"The command contains prettier. Checking for filename from command"
-        )
-        file_match = re.search(r"prettier@[\d\.]+ ([^\s|]+)", stripped_command)
-        if file_match:
-            filename = file_match.group(1)
-            logger.info(f"Found match: {filename}")
-            logger.info(f"Checking if the file exists: {os.path.exists(filename)}")
-            logger.info(f"Passing the filename to calculate_prettier_sha256")
-            return await calculate_prettier_sha256(filename)
-        else:
-            return "Error: Could not extract filename from command"
-
+    """     if "prettier" in stripped_command and "sha256sum" in stripped_command:
+            # Extract the filename from the command
+            logger.info(
+                f"The command contains prettier. Checking for filename from command"
+            )
+            file_match = re.search(r"prettier@[\d\.]+ ([^\s|]+)", stripped_command)
+            if file_match:
+                filename = file_match.group(1)
+                logger.info(f"Found match: {filename}")
+                logger.info(f"Checking if the file exists: {os.path.exists(filename)}")
+                logger.info(f"Passing the filename to calculate_prettier_sha256")
+                return await calculate_prettier_sha256(filename)
+            else:
+                return "Error: Could not extract filename from command"
+    """
     # Default response for unknown commands
     return (
         f"Command executed: {stripped_command}\nOutput: Command simulation successful."
     )
 
 
-# GA1 Question 3
+# GA1 Question 3 => This is new fucntion
+async def format_with_prettier(prettier_version: str, path_to_file: str):
+
+    import hashlib
+    import subprocess
+    import shutil
+
+    logger.info("Inside format_with_prettier function")
+    logger.info(f"Arguments received: {prettier_version=}")
+    logger.info(f"Arguments received: {path_to_file=}")
+    if prettier_version is None or prettier_version == "":
+        logger.info(
+            f"prettier version was not detected in the arguments, using default 3.4.2"
+        )
+        prettier_version = r"3.4.2"
+
+    # Check if file exists
+    logger.info(f"Checking if the file ({path_to_file} exists)")
+    if not os.path.exists(path_to_file):
+        logger.info(f"The file was not found, returning error")
+        return f"Error: File {path_to_file} not found"
+
+    # Find npx executable path
+    logger.info(f"Checking for path of npx")
+    npx_path = shutil.which("npx")
+    logger.info(f"Result of shutil.which: {npx_path}")
+
+    if not npx_path:
+        logger.info("NPX path was not found, calculating hash directly")
+        # If npx is not found, read the file and calculate hash directly
+        with open(path_to_file, "rb") as f:
+            content = f.read()
+            hash_obj = hashlib.sha256(content)
+            hash_value = hash_obj.hexdigest()
+        return f"{hash_value} *-"
+
+    # If npx path was found
+    prettier_cmd = f'"{npx_path}" -y prettier@{prettier_version} "{path_to_file}"'
+    logger.info(f"NPX path was found, running the command: {prettier_cmd}")
+
+    try:
+        # Run prettier with shell=True on Windows
+        prettier_output = subprocess.check_output(
+            prettier_cmd, shell=True, text=True, stderr=subprocess.STDOUT
+        )
+
+        # Calculate hash directly from the prettier output
+        hash_obj = hashlib.sha256(prettier_output.encode("utf-8"))
+        hash_value = hash_obj.hexdigest()
+
+        return f"{hash_value} *-"
+
+    except subprocess.CalledProcessError as e:
+        return f"Error running prettier: {e.output}"
+
+    pass
+
+
+# GA1 Question 3 => This is old function, to be deleted
 async def calculate_prettier_sha256(filename: str) -> str:
     """
     Calculate SHA256 hash of a file after formatting with Prettier
