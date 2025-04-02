@@ -17,6 +17,7 @@ from typing import Optional, Dict, Any, List
 from datetime import datetime, timedelta
 
 from base_logger import logger
+from query_gpt import query_gpt
 
 
 async def calculate_statistics(file_path: str, operation: str, column_name: str) -> str:
@@ -246,83 +247,228 @@ async def format_with_prettier(prettier_version: str, path_to_file: str):
 
 
 # GA1 Question 3 => This is old function, to be deleted
-async def calculate_prettier_sha256(filename: str) -> str:
-    """
-    Calculate SHA256 hash of a file after formatting with Prettier
+# async def calculate_prettier_sha256(filename: str) -> str:
+#     """
+#     Calculate SHA256 hash of a file after formatting with Prettier
 
-    Args:
-        filename: Path to the file to format and hash
+#     Args:
+#         filename: Path to the file to format and hash
 
-    Returns:
-        SHA256 hash of the formatted file
-    """
-    logger.info(f"Inside calculate_prettier_sha256")
+#     Returns:
+#         SHA256 hash of the formatted file
+#     """
+#     logger.info(f"Inside calculate_prettier_sha256")
+#     try:
+#         import hashlib
+#         import subprocess
+#         import tempfile
+#         import shutil
+
+#         # Check if file exists
+#         logger.info(f"Checking if the file ({filename} exists)")
+#         if not os.path.exists(filename):
+#             logger.info(f"The file was not found, returning error")
+#             return f"Error: File {filename} not found"
+
+#         # Find npx executable path
+#         logger.info(f"Checking for path of npx")
+#         npx_path = shutil.which("npx")
+#         logger.info(f"Result of shutil.which: {npx_path}")
+#         # if not npx_path:
+#         #     # Try common locations on Windows
+#         #     possible_paths = [
+#         #         r"C:\Program Files\nodejs\npx.cmd",
+#         #         r"C:\Program Files (x86)\nodejs\npx.cmd",
+#         #         os.path.join(os.environ.get("APPDATA", ""), "npm", "npx.cmd"),
+#         #         os.path.join(os.environ.get("LOCALAPPDATA", ""), "npm", "npx.cmd"),
+#         #     ]
+
+#         #     for path in possible_paths:
+#         #         if os.path.exists(path):
+#         #             npx_path = path
+#         #             break
+
+#         if not npx_path:
+#             logger.info("NPX path was not found, calculating hash directly")
+#             # If npx is not found, read the file and calculate hash directly
+#             with open(filename, "rb") as f:
+#                 content = f.read()
+#                 hash_obj = hashlib.sha256(content)
+#                 hash_value = hash_obj.hexdigest()
+#             return f"{hash_value} *-"
+
+#         # On Windows, we need to use shell=True and the full command
+#         # Run prettier directly and calculate hash from its output without saving to a file
+
+#         prettier_cmd = f'"{npx_path}" -y prettier@3.4.2 "{filename}"'
+#         logger.info("NPX path was found, running the command: {prettier_cmd}")
+
+#         try:
+#             # Run prettier with shell=True on Windows
+#             prettier_output = subprocess.check_output(
+#                 prettier_cmd, shell=True, text=True, stderr=subprocess.STDOUT
+#             )
+
+#             # Calculate hash directly from the prettier output
+#             hash_obj = hashlib.sha256(prettier_output.encode("utf-8"))
+#             hash_value = hash_obj.hexdigest()
+
+#             return f"{hash_value} *-"
+
+#         except subprocess.CalledProcessError as e:
+#             return f"Error running prettier: {e.output}"
+
+#     except Exception as e:
+#         # Provide more detailed error information
+#         import traceback
+
+#         error_details = traceback.format_exc()
+#         return f"Error calculating SHA256 hash: {str(e)}\nDetails: {error_details}"
+
+
+# GA 1 - Question 4
+async def google_sheets_formula(formula: str):
+    import os
+    import httpx
+    import tempfile
+    import subprocess
+
     try:
-        import hashlib
-        import subprocess
-        import tempfile
-        import shutil
+        # api_key = os.getenv("AIPROXY_TOKEN")
+        # response = httpx.post(
+        #     "http://aiproxy.sanand.workers.dev/openai/v1/chat/completions",
+        #     headers={
+        #         "Authorization": f"Bearer {api_key}",
+        #         "Content-Type": "application/json",
+        #     },
+        #     json={
+        #         "model": "gpt-4o-mini",
+        #         "messages": [
+        #             {
+        #                 "role": "system",
+        #                 "content": "You are given a Google Sheets formula. Generate a code only in python using only built-in libraries that will achieve the same result such that it prints only the answer of the formula. Give the code only without any markdown in plain text but maintain indentation",
+        #             },
+        #             {"role": "user", "content": f"{formula}"},
+        #         ],
+        #     },
+        # )
 
-        # Check if file exists
-        logger.info(f"Checking if the file ({filename} exists)")
-        if not os.path.exists(filename):
-            logger.info(f"The file was not found, returning error")
-            return f"Error: File {filename} not found"
+        logger.info(f"Inside excel_formula function. Querying to ChatGPT")
+        headers = {
+            # "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        json = {
+            "model": "gpt-4o-mini",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are given a Google Sheets formula. Generate a code only in python using only built-in libraries that will achieve the same result such that it prints only the answer of the formula. Give the code only without any markdown in plain text but maintain indentation",
+                },
+                {"role": "user", "content": f"{formula}"},
+            ],
+        }
 
-        # Find npx executable path
-        logger.info(f"Checking for path of npx")
-        npx_path = shutil.which("npx")
-        logger.info(f"Result of shutil.which: {npx_path}")
-        # if not npx_path:
-        #     # Try common locations on Windows
-        #     possible_paths = [
-        #         r"C:\Program Files\nodejs\npx.cmd",
-        #         r"C:\Program Files (x86)\nodejs\npx.cmd",
-        #         os.path.join(os.environ.get("APPDATA", ""), "npm", "npx.cmd"),
-        #         os.path.join(os.environ.get("LOCALAPPDATA", ""), "npm", "npx.cmd"),
-        #     ]
+        response = await query_gpt(headers, json)
+        logger.info(f"Response from GPT: {response}")
+        python_script = response["choices"][0]["message"]["content"]
+        print(python_script)
+        temp_dir = tempfile.mkdtemp()
+        with open(f"{temp_dir}/temp_script.py", "w") as temp_script:
+            temp_script.write(str(python_script))
 
-        #     for path in possible_paths:
-        #         if os.path.exists(path):
-        #             npx_path = path
-        #             break
-
-        if not npx_path:
-            logger.info("NPX path was not found, calculating hash directly")
-            # If npx is not found, read the file and calculate hash directly
-            with open(filename, "rb") as f:
-                content = f.read()
-                hash_obj = hashlib.sha256(content)
-                hash_value = hash_obj.hexdigest()
-            return f"{hash_value} *-"
-
-        # On Windows, we need to use shell=True and the full command
-        # Run prettier directly and calculate hash from its output without saving to a file
-
-        prettier_cmd = f'"{npx_path}" -y prettier@3.4.2 "{filename}"'
-        logger.info("NPX path was found, running the command: {prettier_cmd}")
-
-        try:
-            # Run prettier with shell=True on Windows
-            prettier_output = subprocess.check_output(
-                prettier_cmd, shell=True, text=True, stderr=subprocess.STDOUT
-            )
-
-            # Calculate hash directly from the prettier output
-            hash_obj = hashlib.sha256(prettier_output.encode("utf-8"))
-            hash_value = hash_obj.hexdigest()
-
-            return f"{hash_value} *-"
-
-        except subprocess.CalledProcessError as e:
-            return f"Error running prettier: {e.output}"
+        os.chmod(f"{temp_dir}/temp_script.py", 0o755)
+        python_command = shutil.which("python")
+        result = subprocess.run(
+            [python_command, f"{temp_dir}/temp_script.py"],
+            capture_output=True,
+            text=True,
+        )
+        os.remove(f"{temp_dir}/temp_script.py")
+        os.removedirs(temp_dir)
+        logger.info(f"Result of running the script: {result}")
+        return result.stdout[:-1]
+        # result = eval(python_script)
+        # logger.info(f"Result of python script:{result}")
+        # return result
 
     except Exception as e:
-        # Provide more detailed error information
-        import traceback
+        return {"message": "task execution failed", "status_code": 500}
 
-        error_details = traceback.format_exc()
-        return f"Error calculating SHA256 hash: {str(e)}\nDetails: {error_details}"
+
+# GA1 - Question 5
+async def excel_formula(formula: str):
+    import os
+    import httpx
+    import tempfile
+    import subprocess
+
+    logger.info(f"Inside excel_formula function. Querying to ChatGPT")
+    try:
+        # api_key = os.getenv('AIPROXY_TOKEN')
+        # response = httpx.post("http://aiproxy.sanand.workers.dev/openai/v1/chat/completions",
+        #                     headers={
+        #                         "Authorization": f"Bearer {api_key}",
+        #                             "Content-Type": "application/json",
+
+        #                     },
+        #                     json={
+        #                         "model": "gpt-4o-mini",
+        #                             "messages": [
+
+        #         {"role": "system", "content": "You are given a Microsoft Excel formula. Generate a code only in python using only built-in libraries that will achieve the same result such that it prints only the answer of the excel formula. Give the code only without any markdown in plain text but maintain indentation"},
+        #         {"role": "user", "content": f"{formula}"},
+        #     ]
+        # })
+
+        # logger.info(f"Inside excel_formula function. Querying to ChatGPT")
+        headers = {
+            # "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        json = {
+            "model": "gpt-4o-mini",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": """You are given a MS Excel formula. Generate a code only in python using only built-in libraries that will achieve the same result such that it prints only the answer of the formula. Give the code only without any markdown in plain text but maintain indentation""",
+                },
+                {"role": "user", "content": f"{formula}"},
+            ],
+        }
+
+        # from query_gpt import query_gpt
+
+        response = await query_gpt(headers, json)
+
+        logger.info(f"Response from GPT: {response}")
+
+        python_script = response["choices"][0]["message"]["content"]
+        print(python_script)
+        temp_dir = tempfile.mkdtemp()
+        with open(f"{temp_dir}/temp_script.py", "w") as temp_script:
+            temp_script.write(str(python_script))
+
+        os.chmod(f"{temp_dir}/temp_script.py", 0o755)
+        python_command = shutil.which("python")
+        result = subprocess.run(
+            [python_command, f"{temp_dir}/temp_script.py"],
+            capture_output=True,
+            text=True,
+        )
+        os.remove(f"{temp_dir}/temp_script.py")
+        os.removedirs(temp_dir)
+        logger.info(f"Result of running the script: {result}")
+        return result.stdout[:-1]
+
+        # result = eval(python_script)
+        # logger.info(f"Result of python script:{result}")
+        # return result
+
+    except Exception as e:
+        logger.error(f"Error occured inside excel_formula: {e}")
+        raise e
+        # return {"message": "task execution failed", "status_code": 500}
 
 
 # GA1 Question 8:

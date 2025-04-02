@@ -13,52 +13,54 @@ from functions import *
 
 from base_logger import logger
 
-load_dotenv()
+from query_gpt import query_gpt
+
+# load_dotenv()
 
 
-# AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
-# AIPROXY_BASE_URL = "https://aiproxy.sanand.workers.dev/openai/v1"
+# # AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
+# # AIPROXY_BASE_URL = "https://aiproxy.sanand.workers.dev/openai/v1"
 
-USE_PERSONAL_TOKEN = True
+# USE_PERSONAL_TOKEN = True
 
-if USE_PERSONAL_TOKEN:
-    AIPROXY_TOKEN = os.environ["OPENAI_API_MYKEY"]
-    # OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-    AIPROXY_BASE_URL = "https://api.openai.com/v1"
+# if USE_PERSONAL_TOKEN:
+#     AIPROXY_TOKEN = os.environ["OPENAI_API_MYKEY"]
+#     # OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+#     AIPROXY_BASE_URL = "https://api.openai.com/v1"
 
-else:
-    AIPROXY_TOKEN = os.environ["AIPROXY_TOKEN"]
-    # OPENAI_API_URL = "http://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
-    AIPROXY_BASE_URL = "http://aiproxy.sanand.workers.dev/openai/v1"
+# else:
+#     AIPROXY_TOKEN = os.environ["AIPROXY_TOKEN"]
+#     # OPENAI_API_URL = "http://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
+#     AIPROXY_BASE_URL = "http://aiproxy.sanand.workers.dev/openai/v1"
 
 
-async def query_gpt(headers, payload):
-    from fastapi import HTTPException
+# async def query_gpt(headers, payload):
+#     from fastapi import HTTPException
 
-    try:
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                f"{AIPROXY_BASE_URL}/chat/completions",
-                headers=headers,
-                json=payload,
-                timeout=60.0,
-            )
+#     try:
+#         async with httpx.AsyncClient() as client:
+#             response = await client.post(
+#                 f"{AIPROXY_BASE_URL}/chat/completions",
+#                 headers=headers,
+#                 json=payload,
+#                 timeout=60.0,
+#             )
 
-            if response.status_code != 200:
-                logger.info(f"Error from openAI")
-                raise Exception(f"Error from OpenAI API: {response.text}")
+#             if response.status_code != 200:
+#                 logger.info(f"Error from openAI")
+#                 raise Exception(f"Error from OpenAI API: {response.text}")
 
-            logger.info("Response received successfully")
-            result = response.json()
-            return result
+#             logger.info("Response received successfully")
+#             result = response.json()
+#             return result
 
-    except KeyError as e:
-        logger.error(f"KeyError occurred while querying GPT: {e}")
-        raise HTTPException(status_code=400, detail=str(e))
+#     except KeyError as e:
+#         logger.error(f"KeyError occurred while querying GPT: {e}")
+#         raise HTTPException(status_code=400, detail=str(e))
 
-    except Exception as e:
-        logger.error(f"General Error while querying gpt: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+#     except Exception as e:
+#         logger.error(f"General Error while querying gpt: {str(e)}")
+#         raise HTTPException(status_code=500, detail=str(e))
 
 
 async def get_openai_response(question: str, file_path: Optional[str] = None) -> str:
@@ -77,9 +79,12 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
             re.DOTALL,
         )
         if excel_formula_match:  # Fixed indentation here
-            logger.info(f"Excel formula found:{excel_formula_match.group(1)}")
+            # logger.info(f"Excel formula found:{excel_formula_match.group(1)}")
             formula = "=" + excel_formula_match.group(1)
-            result = calculate_spreadsheet_formula(formula, "excel")
+            logger.info(f"Excel formula found:{formula}")
+            # result = calculate_spreadsheet_formula(formula, "excel")
+            logger.info(f"Sending formula to excel_formula function")
+            result = await excel_formula(formula)
             return result
 
     # Check for Google Sheets formula in the question
@@ -89,10 +94,11 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         if sheets_formula_match:
             logger.info(f"found google sheets formula: {sheets_formula_match.group(1)}")
             formula = "=" + sheets_formula_match.group(1)
-            result = calculate_spreadsheet_formula(formula, "google_sheets")
+            # result = calculate_spreadsheet_formula(formula, "google_sheets")
+            result = await google_sheets_formula(formula)
             return result
         # Check specifically for the multi-cursor JSON hash task
-        logger.info("Check specifically for the multi-cursor JSON hash task")
+    logger.info("Check specifically for the multi-cursor JSON hash task")
     if (
         (
             "multi-cursor" in question.lower()
@@ -161,12 +167,9 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         logger.info(f"Processing encoded files")
         result = await process_encoded_files(file_path, target_symbols)
         return result
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {AIPROXY_TOKEN}",
-    }
 
     # Define functions for OpenAI to call
+    logger.info(f"Defining functions for OpenAI")
     functions = [
         {
             "type": "function",
@@ -1267,7 +1270,14 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         },
     ]
 
+    logger.info("Preparing headers to send to Open AI")
+    headers = {
+        "Content-Type": "application/json",
+        # "Authorization": f"Bearer {AIPROXY_TOKEN}",
+    }
+
     # Create the messages to send to the API
+    logger.info("Preparing messages to send to OpenAI")
     messages = [
         {
             "role": "system",
@@ -1277,7 +1287,9 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
     ]
 
     # Add information about the file if provided
+
     if file_path:
+        logger.info("Adding file paths, if files provided")
         messages.append(
             {
                 "role": "user",
@@ -1295,7 +1307,7 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
 
     # Make the request to the AI Proxy
     logger.info(f"Making request to openai")
-    logger.info(f"Using URL: {f"{AIPROXY_BASE_URL}/chat/completions"}")
+
     result = await query_gpt(headers, payload)
     # async with httpx.AsyncClient() as client:
     #     response = await client.post(

@@ -1,10 +1,10 @@
 import requests
 
 # Define the API endpoint and the file path
-# url = "http://localhost:8000/api/"
+url = "http://localhost:8000/api/"
 # url = "https://b6fe-49-36-103-228.ngrok-free.app"
 # url = "http://4.186.56.117:8000"
-url = "https://tds-p2-endpoint.vercel.app/api/"
+# url = "https://tds-p2-endpoint.vercel.app/api/"
 #
 
 
@@ -95,8 +95,30 @@ def ga1q3():
     files["file"].close()
 
 
+def ga1q4():
+    printlines()
+    print("Google Sheets")
+    question = """
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        """
+    data = {"question": question}
+
+    # Send the POST request
+    # url = "https://f6df-49-36-103-228.ngrok-free.app"
+    response = requests.post(url, data=data)
+
+    # Check the response status and print it
+    if response.status_code == 200:
+        print("Response:", response.json())
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
+
+
 def ga1q5():
     printlines()
+    print("MS Excel 365")
     question = """Let's make sure you can write formulas in Excel. Type this formula into Excel.
                 Note: This will ONLY work in Office 365.
                 =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
@@ -270,18 +292,19 @@ Be located in .github/workflows/ directory"""
 
 
 def main():
-    ga1q1()
-    ga1q2()
-    ga1q3()
+    # ga1q1()
+    # ga1q2()
+    # ga1q3()
+    ga1q4()
     ga1q5()
-    ga1_some_q()
+    # ga1_some_q()
 
-    ga4q3()
-    ga4q4()
-    ga4q5()
-    ga4q6()
-    ga4q7()
-    ga4q8()
+    # ga4q3()
+    # ga4q4()
+    # ga4q5()
+    # ga4q6()
+    # ga4q7()
+    # ga4q8()
 
 
 def httpie_test():

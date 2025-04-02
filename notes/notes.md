@@ -74,8 +74,6 @@ Install packages
 uv pip install fastapi
 ```
 
-
-
 # Handling newline characters in markdown response
 
 Your markdown must have newline characters or spaces wherever necessary. Otherwise we will not be able to check if your answer is correct. Our parser will only work if encodings for the formatting are present in the response. If there are no encodings (invisible or visible) then we will not have the correctly formatted file.

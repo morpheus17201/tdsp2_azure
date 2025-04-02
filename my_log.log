@@ -2845,3 +2845,894 @@ We'll check by sending a request to this URL with ?country=... passing different
 [2025-04-02 00:55:42,410 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {}
 [2025-04-02 01:00:20,328 - INFO -             <module>(): ] Starting logger
 [2025-04-02 01:05:20,715 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:06:58,012 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:06:58,299 - INFO -             <module>(): ] Starting FastAPI server...
+[2025-04-03 00:06:59,574 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:08:43,000 - INFO -     process_question(): ] Received question: Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:08:43,001 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:08:43,001 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:08:43,002 - INFO -     process_question(): ] Sending question to openai Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:08:43,003 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:08:43,003 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:08:43,004 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:08:45,098 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:15:37,320 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:15:41,759 - INFO -     process_question(): ] Received question: Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:15:41,760 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:15:41,760 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:15:41,760 - INFO -     process_question(): ] Sending question to openai Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:15:41,761 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:15:41,761 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:15:41,762 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:15:41,762 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:15:41,762 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:15:41,763 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:15:41,763 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:15:41,763 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:15:41,764 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:15:41,764 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:15:42,684 - INFO -            query_gpt(): ] Error from openAI
+[2025-04-03 00:15:42,684 - ERROR -            query_gpt(): ] General Error while querying gpt: Error from OpenAI API: {
+    "error": {
+        "message": "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": null
+    }
+}
+
+[2025-04-03 00:17:14,490 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:17:22,279 - INFO -     process_question(): ] Received question: Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:17:22,279 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:17:22,280 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:17:22,280 - INFO -     process_question(): ] Sending question to openai Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:17:22,280 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:17:22,281 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:17:22,281 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:17:22,281 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:17:22,282 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:17:22,282 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:17:22,283 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:17:22,283 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:17:22,283 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:17:22,283 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:17:22,284 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:17:25,345 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:17:25,345 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_OxmTHuLC4I0nHFT6AWCoYkzj', 'type': 'function', 'function': {'name': 'vscode_info', 'arguments': '{"command":"code -s"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:17:25,345 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:17:25,346 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:17:25,346 - INFO -  get_openai_response(): ] Function name returned by OpenAI: vscode_info
+[2025-04-03 00:17:25,346 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'code -s'}
+[2025-04-03 00:17:25,347 - INFO -  get_openai_response(): ] Detected function call for vscode_info
+[2025-04-03 00:18:12,098 - INFO -     process_question(): ] Received question: Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:18:12,098 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:18:12,098 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:12,099 - INFO -     process_question(): ] Sending question to openai Execute a shell command and return its output. Use this for questions about running terminal commands like 'code -s' to check VS Code status.
+[2025-04-03 00:18:12,099 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:18:12,099 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:18:12,100 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:18:12,100 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:18:12,100 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:18:12,101 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:18:12,101 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:18:12,101 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:18:12,102 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:18:12,102 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:18:12,102 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:18:14,110 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:18:14,111 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_vJ59RwGHBI5pOTIw9XpoLfrb', 'type': 'function', 'function': {'name': 'vscode_info', 'arguments': '{"command":"code -s"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:18:14,111 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:18:14,111 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:18:14,111 - INFO -  get_openai_response(): ] Function name returned by OpenAI: vscode_info
+[2025-04-03 00:18:14,112 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'command': 'code -s'}
+[2025-04-03 00:18:14,113 - INFO -  get_openai_response(): ] Detected function call for vscode_info
+[2025-04-03 00:18:15,521 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:18:16,154 - INFO -     process_question(): ] Received question: Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 23f2005138@ds.study.iitm.ac.in
+[2025-04-03 00:18:16,155 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:18:16,155 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:16,155 - INFO -     process_question(): ] Sending question to openai Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 23f2005138@ds.study.iitm.ac.in
+[2025-04-03 00:18:16,156 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:18:16,156 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:18:16,156 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:18:16,156 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:18:16,157 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:18:16,157 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:18:16,157 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:18:16,158 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:18:16,158 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:18:16,158 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:18:16,158 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:18:18,394 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:18:18,394 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_XJdb5QchvGFSpRxEfrto6nDS', 'type': 'function', 'function': {'name': 'make_api_request', 'arguments': '{"url":"https://httpbin.org/get?email=23f2005138@ds.study.iitm.ac.in","method":"GET"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:18:18,395 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:18:18,395 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:18:18,395 - INFO -  get_openai_response(): ] Function name returned by OpenAI: make_api_request
+[2025-04-03 00:18:18,396 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'url': 'https://httpbin.org/get?email=23f2005138@ds.study.iitm.ac.in', 'method': 'GET'}
+[2025-04-03 00:18:21,932 - INFO -     process_question(): ] Received question: Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-03 00:18:21,932 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-03 00:18:21,932 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:21,932 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-03 00:18:21,933 - INFO -     process_question(): ] Only single file received
+[2025-04-03 00:18:21,933 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:21,933 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: README.md
+[2025-04-03 00:18:21,934 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-03 00:18:21,937 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmp957ea814\README.md
+[2025-04-03 00:18:21,937 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmp957ea814\README.md
+[2025-04-03 00:18:21,938 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-03 00:18:21,939 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmp957ea814\README.md
+[2025-04-03 00:18:21,939 - INFO -     process_question(): ] Sending question to openai Download README.md file. In the directory where you downloaded it, make sure it is called README.md, 
+        and run npx -y prettier@3.4.2 README.md | sha256sum.
+        What is the output of the command?
+[2025-04-03 00:18:21,939 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:18:21,939 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:18:21,940 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:18:21,940 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:18:21,940 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:18:21,940 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:18:21,941 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:18:21,941 - INFO -  get_openai_response(): ] Adding file paths, if files provided
+[2025-04-03 00:18:21,941 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:18:21,941 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:18:21,942 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:18:21,942 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:18:24,907 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:18:24,908 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_FNOKVcLNQbWZo4THMnMuSNnp', 'type': 'function', 'function': {'name': 'format_with_prettier', 'arguments': '{"prettier_version":"3.4.2","path_to_file":"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmp957ea814\\\\README.md"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:18:24,908 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:18:24,908 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:18:24,909 - INFO -  get_openai_response(): ] Function name returned by OpenAI: format_with_prettier
+[2025-04-03 00:18:24,909 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'prettier_version': '3.4.2', 'path_to_file': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmp957ea814\\README.md'}
+[2025-04-03 00:18:24,910 - INFO -  get_openai_response(): ] Detected function call for format_with_prettier
+[2025-04-03 00:18:24,910 - INFO - format_with_prettier(): ] Inside format_with_prettier function
+[2025-04-03 00:18:24,910 - INFO - format_with_prettier(): ] Arguments received: prettier_version='3.4.2'
+[2025-04-03 00:18:24,910 - INFO - format_with_prettier(): ] Arguments received: path_to_file='C:\\Users\\saran\\AppData\\Local\\Temp\\tmp957ea814\\README.md'
+[2025-04-03 00:18:24,911 - INFO - format_with_prettier(): ] Checking if the file (C:\Users\saran\AppData\Local\Temp\tmp957ea814\README.md exists)
+[2025-04-03 00:18:24,911 - INFO - format_with_prettier(): ] Checking for path of npx
+[2025-04-03 00:18:24,915 - INFO - format_with_prettier(): ] Result of shutil.which: C:\Program Files (x86)\Nodist\bin\npx.EXE
+[2025-04-03 00:18:24,915 - INFO - format_with_prettier(): ] NPX path was found, running the command: "C:\Program Files (x86)\Nodist\bin\npx.EXE" -y prettier@3.4.2 "C:\Users\saran\AppData\Local\Temp\tmp957ea814\README.md"
+[2025-04-03 00:18:39,547 - INFO -  get_openai_response(): ] Executed format_with_prettier with answer='df7135cf3335f22a257770bdb05a825c9ab036239cc9507a951fefa3d3f57ed2 *-'
+[2025-04-03 00:18:41,583 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:18:41,583 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:18:41,583 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:41,583 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:18:41,584 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:18:41,584 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:18:41,585 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:18:43,631 - INFO -     process_question(): ] Received question: Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-03 00:18:43,631 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-03 00:18:43,631 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:43,632 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-03 00:18:43,632 - INFO -     process_question(): ] Only single file received
+[2025-04-03 00:18:43,633 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:18:43,633 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: q-extract-csv-zip.zip
+[2025-04-03 00:18:43,633 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-03 00:18:43,634 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmpjvojl4jm\q-extract-csv-zip.zip
+[2025-04-03 00:18:43,634 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmpjvojl4jm\q-extract-csv-zip.zip
+[2025-04-03 00:18:43,635 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-03 00:18:43,635 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmpjvojl4jm\q-extract-csv-zip.zip
+[2025-04-03 00:18:43,636 - INFO -     process_question(): ] Sending question to openai Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-03 00:18:43,636 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:18:43,636 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:18:43,636 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:18:43,636 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:18:43,637 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:18:43,637 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:18:43,637 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:18:43,637 - INFO -  get_openai_response(): ] Adding file paths, if files provided
+[2025-04-03 00:18:43,638 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:18:43,638 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:18:43,638 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:18:43,638 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:18:47,612 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:18:47,613 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_rtS4ZploBf6WIv9WS4cQ5EVo', 'type': 'function', 'function': {'name': 'extract_zip_and_read_csv', 'arguments': '{"file_path":"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmpjvojl4jm\\\\q-extract-csv-zip.zip","column_name":"answer"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:18:47,613 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:18:47,614 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:18:47,614 - INFO -  get_openai_response(): ] Function name returned by OpenAI: extract_zip_and_read_csv
+[2025-04-03 00:18:47,615 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'file_path': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpjvojl4jm\\q-extract-csv-zip.zip', 'column_name': 'answer'}
+[2025-04-03 00:23:16,174 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:23:30,792 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:23:44,168 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:23:44,169 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:23:44,169 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:23:44,169 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:23:44,169 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:23:44,170 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:23:44,170 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:23:44,170 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:23:46,202 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:23:46,203 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:23:46,203 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:23:46,203 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:23:46,204 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:23:46,204 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:23:46,204 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:23:48,243 - INFO -     process_question(): ] Received question: Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-03 00:23:48,244 - INFO -     process_question(): ] Number of files received: 1
+[2025-04-03 00:23:48,244 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:23:48,244 - INFO -     process_question(): ] Detected that file has been received
+[2025-04-03 00:23:48,245 - INFO -     process_question(): ] Only single file received
+[2025-04-03 00:23:48,245 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:23:48,246 - INFO - save_upload_file_temporarily(): ] Saving file temporarily: q-extract-csv-zip.zip
+[2025-04-03 00:23:48,246 - INFO - save_upload_file_temporarily(): ] Creating temporary directory
+[2025-04-03 00:23:48,248 - INFO - save_upload_file_temporarily(): ] File path: C:\Users\saran\AppData\Local\Temp\tmpheogeln8\q-extract-csv-zip.zip
+[2025-04-03 00:23:48,248 - INFO - save_upload_file_temporarily(): ] Saving file to C:\Users\saran\AppData\Local\Temp\tmpheogeln8\q-extract-csv-zip.zip
+[2025-04-03 00:23:48,249 - INFO - save_upload_file_temporarily(): ] File saved successfully
+[2025-04-03 00:23:48,249 - INFO -     process_question(): ] Successfully saved the file to C:\Users\saran\AppData\Local\Temp\tmpheogeln8\q-extract-csv-zip.zip
+[2025-04-03 00:23:48,249 - INFO -     process_question(): ] Sending question to openai Download and unzip file q-extract-csv-zip.zip which has a single extract.csv file inside. What is the value in the "answer" column of the CSV file?
+[2025-04-03 00:23:48,250 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:23:48,250 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:23:48,250 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:23:48,250 - INFO -  get_openai_response(): ] Check specifically for the multi-cursor JSON hash task
+[2025-04-03 00:23:48,251 - INFO -  get_openai_response(): ] Defining functions for OpenAI
+[2025-04-03 00:23:48,251 - INFO -  get_openai_response(): ] Preparing headers to send to Open AI
+[2025-04-03 00:23:48,251 - INFO -  get_openai_response(): ] Preparing messages to send to OpenAI
+[2025-04-03 00:23:48,251 - INFO -  get_openai_response(): ] Adding file paths, if files provided
+[2025-04-03 00:23:48,252 - INFO -  get_openai_response(): ] Making request to openai
+[2025-04-03 00:23:48,252 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:23:48,252 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:23:48,252 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:23:51,100 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:23:51,100 - INFO -  get_openai_response(): ] 'message' in the response from OpenAI: {'role': 'assistant', 'content': None, 'tool_calls': [{'id': 'call_rgVCnFTIC9EqAQfW4qD9asel', 'type': 'function', 'function': {'name': 'extract_zip_and_read_csv', 'arguments': '{"file_path":"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\tmpheogeln8\\\\q-extract-csv-zip.zip","column_name":"answer"}'}}], 'refusal': None, 'annotations': []}
+[2025-04-03 00:23:51,101 - INFO -  get_openai_response(): ] Detected tool_calls in 'message'
+[2025-04-03 00:23:51,101 - INFO -  get_openai_response(): ] Number of tool calls: 1
+[2025-04-03 00:23:51,101 - INFO -  get_openai_response(): ] Function name returned by OpenAI: extract_zip_and_read_csv
+[2025-04-03 00:23:51,102 - INFO -  get_openai_response(): ] Function arguments returned by OpenAI: {'file_path': 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpheogeln8\\q-extract-csv-zip.zip', 'column_name': 'answer'}
+[2025-04-03 00:25:20,811 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:25:27,621 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:25:27,622 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:25:27,622 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:25:27,622 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:25:27,622 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:25:27,623 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:25:27,624 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:25:27,624 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:25:29,653 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:25:29,653 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:25:29,653 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:25:29,654 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:25:29,654 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:25:29,654 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:25:29,655 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:26:46,703 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:27:01,037 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:27:01,037 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:27:01,038 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:27:01,038 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:27:01,038 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:27:01,039 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:27:01,039 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:27:01,040 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:27:03,072 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:27:03,073 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:27:03,073 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:27:03,073 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:27:03,074 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:27:03,074 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:27:03,075 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:29:55,425 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:31:32,396 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:31:46,343 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:31:46,344 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:31:46,344 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:31:46,345 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:31:46,345 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:31:46,345 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:31:46,346 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:31:46,346 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:31:48,387 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:31:48,388 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:31:48,388 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:31:48,388 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:31:48,389 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:31:48,389 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:31:48,390 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:33:39,814 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:33:48,083 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:33:48,083 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:33:48,083 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:33:48,084 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:33:48,084 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:33:48,084 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:33:48,085 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:33:48,085 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:33:50,131 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:33:50,131 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:33:50,132 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:33:50,133 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:33:50,133 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:33:50,133 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:33:50,133 - INFO -  get_openai_response(): ] Excel formula found:SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:36:29,443 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:36:36,550 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:36:36,551 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:36:36,551 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:36:36,551 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:36:36,552 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:36:36,552 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:36:36,553 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:36:36,554 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:36:38,593 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:36:38,594 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:36:38,595 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:36:38,596 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:36:38,596 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:36:38,597 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:36:38,598 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:36:38,599 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 00:38:55,406 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:38:55,456 - INFO -             <module>(): ] Starting FastAPI server...
+[2025-04-03 00:38:56,686 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:39:04,281 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:39:04,282 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:39:04,283 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:39:04,283 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:39:04,283 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:39:04,284 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:39:04,284 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:39:04,284 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:39:04,285 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:39:04,285 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:39:04,285 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:39:04,285 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:39:06,307 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:39:08,357 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:39:08,358 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:39:08,359 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:39:08,360 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:39:08,361 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:39:08,362 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:39:08,363 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:39:08,364 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 00:39:08,365 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:39:08,366 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:39:08,367 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:39:08,368 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:39:11,541 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:39:11,542 - ERROR -        excel_formula(): ] Error occured inside excel_formula: 'dict' object has no attribute 'json'
+[2025-04-03 00:41:15,980 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:41:31,373 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:41:31,374 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:41:31,374 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:41:31,375 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:41:31,375 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:41:31,375 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:41:31,376 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:41:31,376 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:41:31,377 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:41:31,377 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:41:31,378 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:41:31,378 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:41:33,010 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:41:33,011 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHxmnUc6MkTOMAGxUb60K6KVPfihY', 'object': 'chat.completion', 'created': 1743621093, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'total = sum(range(5, 5 + 7 * 10, 7))\nprint(total)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 00:41:35,057 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:41:35,057 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:41:35,057 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:41:35,057 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:41:35,057 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:41:35,058 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:41:35,058 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:41:35,058 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 00:41:35,058 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:41:35,059 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:41:35,059 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:41:35,059 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:41:39,985 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:41:39,986 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHxmqS8vsy5wcm6xl3WDfWZR9taoE', 'object': 'chat.completion', 'created': 1743621096, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'numbers = [9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15]\nsort_index = [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12]\n\nsorted_numbers = [x for _, x in sorted(zip(sort_index, numbers))]\nfirst_twelve = sorted_numbers[:12]\nresult = sum(first_twelve)\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 140, 'completion_tokens': 137, 'total_tokens': 277, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 00:41:39,986 - ERROR -        excel_formula(): ] Error occured inside excel_formula: 'dict' object has no attribute 'json'
+[2025-04-03 00:55:01,448 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:55:13,112 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:55:13,113 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:55:13,113 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:55:13,113 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:55:13,114 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:55:13,114 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:55:13,115 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:55:13,115 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:55:13,115 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:55:13,116 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:55:13,116 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:55:13,116 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:55:15,936 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:55:17,982 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:55:17,982 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:55:17,982 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:55:17,983 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:55:17,983 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:55:17,983 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:55:17,983 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:55:17,984 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 00:55:17,985 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:55:17,985 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:55:17,986 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:55:17,987 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:55:22,021 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:55:22,022 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHy08mjDhPX0JqAVk6pG5wLNVV1oW', 'object': 'chat.completion', 'created': 1743621920, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(sorted([9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15], key=lambda x: [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12].index(x))[:12])\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 140, 'completion_tokens': 114, 'total_tokens': 254, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 00:55:22,022 - ERROR -        excel_formula(): ] Error occured inside excel_formula: 'dict' object has no attribute 'json'
+[2025-04-03 00:56:46,779 - INFO -             <module>(): ] Starting logger
+[2025-04-03 00:57:07,247 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:57:07,247 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:57:07,248 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:57:07,248 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 00:57:07,248 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:57:07,248 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:57:07,249 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 00:57:07,249 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 00:57:07,250 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:57:07,250 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:57:07,251 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:57:07,251 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:57:10,506 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:57:10,507 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHy1uPQtAuqViRtZlCgh9FpUPNZqh', 'object': 'chat.completion', 'created': 1743622030, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'total = sum(range(5, 5 + 7 * 10, 7))\nprint(total)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 00:57:12,789 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:57:12,789 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 00:57:12,789 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 00:57:12,789 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 00:57:12,789 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 00:57:12,790 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 00:57:12,790 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 00:57:12,791 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 00:57:12,791 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 00:57:12,791 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 00:57:12,792 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 00:57:12,792 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 00:57:17,636 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 00:57:17,637 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHy1ygj2umE0of77R9JypUSpHjAgS', 'object': 'chat.completion', 'created': 1743622034, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(sorted([9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15], key=lambda x: {10: x, 9: x, 13: x, 2: x, 11: x, 8: x, 16: x, 14: x, 7: x, 15: x, 5: x, 4: x, 6: x, 1: x, 3: x, 12: x}.get(x))[:12])\n\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 140, 'completion_tokens': 146, 'total_tokens': 286, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:02:33,828 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:02:47,190 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:02:47,190 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:02:47,191 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:02:47,191 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:02:47,191 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:02:47,192 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:02:47,193 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:02:47,194 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:02:47,195 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:02:47,195 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:02:47,196 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:02:47,196 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:02:48,870 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:02:48,871 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHy7MvecrLq9mhMpRhjfguKn9oGbX', 'object': 'chat.completion', 'created': 1743622368, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'sum(range(5, 5 + 7 * 10, 7))', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 18, 'total_tokens': 105, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:02:51,073 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:02:51,073 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:02:51,073 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:02:51,073 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:02:51,073 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:02:51,074 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:02:51,074 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:02:51,074 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:02:51,075 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:02:51,075 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:02:51,075 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:02:51,076 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:02:55,643 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:02:55,644 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHy7QSsvpAuDPaCqIijcYxaP4wdmt', 'object': 'chat.completion', 'created': 1743622372, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(sorted([9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15], key=lambda x: {10: x, 9: x, 13: x, 2: x, 11: x, 8: x, 16: x, 14: x, 7: x, 15: x, 5: x, 4: x, 6: x, 1: x, 3: x, 12: x}.get))[0:12])', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 159, 'completion_tokens': 143, 'total_tokens': 302, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:02:55,644 - ERROR -        excel_formula(): ] Error occured inside excel_formula: unmatched ')' (<string>, line 1)
+[2025-04-03 01:06:11,834 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:06:30,451 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:06:30,452 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:06:30,452 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:06:30,452 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:06:30,453 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:06:30,453 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:06:30,454 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:06:30,454 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:06:30,455 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:06:30,455 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:06:30,456 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:06:30,456 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:06:33,399 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:06:33,400 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyAzqkoKGJbhhMDw2PiKdINXdUAL', 'object': 'chat.completion', 'created': 1743622593, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(range(5, 5 + 7 * 10, 7))\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:06:35,438 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:06:35,439 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:06:35,439 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:06:35,439 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:06:35,440 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:06:35,440 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:06:35,441 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:06:35,441 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:06:35,442 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:06:35,442 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:06:35,443 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:06:35,443 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:06:39,332 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:06:39,332 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyB2wjKGQ2kpnVBVJoO7A1hPnzqG', 'object': 'chat.completion', 'created': 1743622596, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'total = sum(sorted([9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15], key=lambda x: [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12].index(x))[:12])', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 159, 'completion_tokens': 111, 'total_tokens': 270, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:06:39,333 - ERROR -        excel_formula(): ] Error occured inside excel_formula: invalid syntax (<string>, line 1)
+[2025-04-03 01:09:06,344 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:09:26,210 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:09:26,211 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:09:26,211 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:09:26,211 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:09:26,212 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:09:26,212 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:09:26,213 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:09:26,213 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:09:26,214 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:09:26,214 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:09:26,215 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:09:26,215 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:09:31,224 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:09:31,225 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyDr6xw2B8wpdE5ehxqDPRu25i5G', 'object': 'chat.completion', 'created': 1743622771, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(range(5, 5 + 7 * 10, 7))\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:09:33,254 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:09:33,254 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:09:33,255 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:09:33,255 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:09:33,255 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:09:33,256 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:09:33,256 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:09:33,256 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:09:33,257 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:09:33,258 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:09:33,258 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:09:33,259 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:09:35,666 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:09:35,666 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyDuDJrhI8xCdhcmlbKQmIF4eyFk', 'object': 'chat.completion', 'created': 1743622774, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'SUM(sorted[0:12])  \nsorted = sorted([9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15], key=lambda x: [10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12][x-1])', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 172, 'completion_tokens': 86, 'total_tokens': 258, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:09:35,667 - ERROR -        excel_formula(): ] Error occured inside excel_formula: invalid syntax (<string>, line 2)
+[2025-04-03 01:11:50,569 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:12:00,738 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:12:00,738 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:12:00,739 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:12:00,739 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:12:00,739 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:12:00,739 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:12:00,740 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:12:00,741 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:12:00,741 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:12:00,742 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:12:00,742 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:12:00,743 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:12:03,011 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:12:03,011 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyGJ0dlIHE5y2LUTQEbcUIPVn5qO', 'object': 'chat.completion', 'created': 1743622923, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(range(5, 5 + 7 * 10, 7))\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:12:05,045 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:12:05,045 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:12:05,045 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:12:05,046 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:12:05,046 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:12:05,046 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:12:05,046 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:12:05,047 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:12:05,047 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:12:05,048 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:12:05,048 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:12:05,048 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:12:08,374 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:12:08,375 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyGN11VwdZYHf7SaHmKH59OGYfcl', 'object': 'chat.completion', 'created': 1743622927, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'SUM(sum(sorted(range(9, 16), key=lambda x: [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12])[:12]))', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 179, 'completion_tokens': 66, 'total_tokens': 245, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:12:08,376 - ERROR -        excel_formula(): ] Error occured inside excel_formula: name 'SUM' is not defined
+[2025-04-03 01:15:17,691 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:15:34,668 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:15:34,670 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:15:34,670 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:15:34,671 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:15:34,672 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:15:34,673 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:15:34,675 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:15:34,676 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:15:34,676 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:15:34,676 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:15:34,677 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:15:34,677 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:15:36,514 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:15:36,514 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyJkP2YgCt5mylP6nSabDn1MwhAO', 'object': 'chat.completion', 'created': 1743623136, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(range(5, 5 + 7 * 10, 7))\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:15:36,685 - INFO - google_sheets_formula(): ] Result of running the script: 
+[2025-04-03 01:15:38,713 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:15:38,713 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:15:38,713 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:15:38,713 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:15:38,714 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:15:38,714 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:15:38,714 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:15:38,715 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:15:38,715 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:15:38,715 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:15:38,716 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:15:38,716 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:15:43,563 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:15:43,564 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyJor4rKahbQS1E6ySiy99kY4wKS', 'object': 'chat.completion', 'created': 1743623140, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(sorted([9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15], key=lambda x: {10: 0, 9: 1, 13: 2, 2: 3, 11: 4, 8: 5, 16: 6, 14: 7, 7: 8, 15: 9, 5: 10, 4: 11, 6: 12, 1: 13, 3: 14, 12: 15}[x])[:12])\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 139, 'completion_tokens': 161, 'total_tokens': 300, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:15:43,700 - INFO -        excel_formula(): ] Result of running the script: 
+[2025-04-03 01:20:13,132 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:20:23,952 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:20:23,952 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:20:23,952 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:20:23,953 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:20:23,953 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:20:23,953 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:20:23,954 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:20:23,955 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:20:23,955 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:20:23,955 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:20:23,956 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:20:23,956 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:20:26,212 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:20:26,213 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyOQW0SBHv2uoNBrAFQ8WvcJ3NoG', 'object': 'chat.completion', 'created': 1743623426, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'total = sum(range(5, 5 + 7 * 10, 7))\nprint(total)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:20:26,376 - INFO - google_sheets_formula(): ] Result of running the script: CompletedProcess(args=['python3', 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpog_8fzju/temp_script.py'], returncode=9009, stdout='', stderr='Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.\n')
+[2025-04-03 01:20:28,411 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:20:28,411 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:20:28,411 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:20:28,411 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:20:28,412 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:20:28,412 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:20:28,412 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:20:28,413 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:20:28,413 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:20:28,413 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:20:28,414 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:20:28,414 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:20:32,225 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:20:32,226 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyOU2VllYGKbb7Abb74PzrxXk30w', 'object': 'chat.completion', 'created': 1743623430, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'numbers = [9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15]\nsort_keys = [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12]\n\nsorted_numbers = sorted(zip(sort_keys, numbers), key=lambda x: x[0])\nsorted_values = [value for key, value in sorted_numbers]\n\nresult = sum(sorted_values[:12])\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 139, 'completion_tokens': 144, 'total_tokens': 283, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:20:32,361 - INFO -        excel_formula(): ] Result of running the script: CompletedProcess(args=['python3', 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpkmc8qi7a/temp_script.py'], returncode=9009, stdout='', stderr='Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.\n')
+[2025-04-03 01:21:54,470 - INFO -             <module>(): ] Starting logger
+[2025-04-03 01:22:06,399 - INFO -     process_question(): ] Received question: 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:22:06,400 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:22:06,400 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:22:06,400 - INFO -     process_question(): ] Sending question to openai 
+        Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
+        =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+        What is the result?
+        
+[2025-04-03 01:22:06,400 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:22:06,400 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:22:06,401 - INFO -  get_openai_response(): ] Checking if there's google sheets in the question
+[2025-04-03 01:22:06,401 - INFO -  get_openai_response(): ] found google sheets formula: SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 5, 7), 1, 10))
+[2025-04-03 01:22:06,401 - INFO - google_sheets_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:22:06,401 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:22:06,401 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:22:06,402 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:22:08,186 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:22:08,186 - INFO - google_sheets_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyQ3cbHJimwbLodfka47qKjCyHIv', 'object': 'chat.completion', 'created': 1743623527, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'result = sum(range(5, 5 + 7 * 10, 7))\nprint(result)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 87, 'completion_tokens': 23, 'total_tokens': 110, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:22:08,358 - INFO - google_sheets_formula(): ] Result of running the script: CompletedProcess(args=['python3', 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpkxf28elk/temp_script.py'], returncode=9009, stdout='', stderr='Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.\n')
+[2025-04-03 01:22:10,387 - INFO -     process_question(): ] Received question: Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:22:10,387 - INFO -     process_question(): ] Number of files received: 0
+[2025-04-03 01:22:10,387 - INFO -     process_question(): ] Attempting to save the file
+[2025-04-03 01:22:10,388 - INFO -     process_question(): ] Sending question to openai Let's make sure you can write formulas in Excel. Type this formula into Excel.
+                Note: This will ONLY work in Office 365.
+                =SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12))
+                What is the result?
+[2025-04-03 01:22:10,388 - INFO -  get_openai_response(): ] Inside the function: get_openai_response
+[2025-04-03 01:22:10,388 - INFO -  get_openai_response(): ] Checking if there's excel formula in the question
+[2025-04-03 01:22:10,388 - INFO -  get_openai_response(): ] Excel formula found:=SUM(TAKE(SORTBY({9,11,12,13,14,2,3,1,4,1,3,2,11,12,1,15}, {10,9,13,2,11,8,16,14,7,15,5,4,6,1,3,12}), 1, 12)
+[2025-04-03 01:22:10,389 - INFO -  get_openai_response(): ] Sending formula to excel_formula function
+[2025-04-03 01:22:10,389 - INFO -        excel_formula(): ] Inside excel_formula function. Querying to ChatGPT
+[2025-04-03 01:22:10,389 - INFO -            query_gpt(): ] Making request to openai
+[2025-04-03 01:22:10,389 - INFO -            query_gpt(): ] Using URL: https://api.openai.com/v1/chat/completions
+[2025-04-03 01:22:10,389 - INFO -            query_gpt(): ] Authorization not received in the headers. Adding to headers
+[2025-04-03 01:22:16,544 - INFO -            query_gpt(): ] Response received successfully
+[2025-04-03 01:22:16,545 - INFO -        excel_formula(): ] Response from GPT: {'id': 'chatcmpl-BHyQ7VbNTmGpxdXly4Q6frQia4x1E', 'object': 'chat.completion', 'created': 1743623531, 'model': 'gpt-4o-mini-2024-07-18', 'choices': [{'index': 0, 'message': {'role': 'assistant', 'content': 'numbers = [9, 11, 12, 13, 14, 2, 3, 1, 4, 1, 3, 2, 11, 12, 1, 15]\nsort_keys = [10, 9, 13, 2, 11, 8, 16, 14, 7, 15, 5, 4, 6, 1, 3, 12]\n\nsorted_numbers = [num for _, num in sorted(zip(sort_keys, numbers), key=lambda x: x[0])]\nsum_of_top_12 = sum(sorted_numbers[:12])\nprint(sum_of_top_12)', 'refusal': None, 'annotations': []}, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 139, 'completion_tokens': 145, 'total_tokens': 284, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}, 'service_tier': 'default', 'system_fingerprint': 'fp_b376dfbbd5'}
+[2025-04-03 01:22:16,612 - INFO -        excel_formula(): ] Result of running the script: CompletedProcess(args=['D:\\TDS\\tdsp2_azure\\.venv\\Scripts\\python.EXE', 'C:\\Users\\saran\\AppData\\Local\\Temp\\tmpvszz53qi/temp_script.py'], returncode=0, stdout='97\n', stderr='')
+[2025-04-03 01:23:13,053 - INFO -             <module>(): ] Starting logger
